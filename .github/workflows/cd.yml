@@ -23,9 +23,9 @@ jobs:
     - name: Build Docker image
       uses: docker/build-push-action@v1.1.0
       with:
-        username: filipowm
+        username: isagroup
         password: ${{ secrets.DOCKER_REGISTRY_PASS }}
-        repository: filipowm/boogi-${{ matrix.dockerfile }}
+        repository: isagroup/governify-web
         tags: latest
         tag_with_ref: true
         tag_with_sha: true 
