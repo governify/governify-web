@@ -1,4 +1,4 @@
-# BooGi
+# Governify
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c0cec88f-db01-4c57-8b8d-782e07a9f73f/deploy-status)](https://app.netlify.com/sites/boogi/deploys)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/filipowm/boogi)
