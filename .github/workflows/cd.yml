@@ -19,8 +19,12 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: "12.x"
-      - run: npm install
-      - run: npm build
+      - name: Install dependencies
+        run: yarn install --prod --pure-lockfile
+      - name: Build
+        run: yarn run build
+        env:
+          GATSBY_ENV: "prod"
 
       - uses: netlify/actions/cli@master
         env:
