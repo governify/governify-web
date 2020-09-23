@@ -1,9 +1,9 @@
-# 1.1.0 (2020-09-23)
+# 1.2.0 (2020-09-23)
 
 
 ### Features
 
-* Implanting Governify P1 ([e5bdf95](https://github.com/AlexGue/governify-web/commit/e5bdf958f99a9dd21292aafd4329de7bdf9eca96))
+* First version of Governify web ([28d3751](https://github.com/governify/governify-web/commit/28d3751efc61ce4c6ff21fbaab99f801fec8b254))
 
 
 
