@@ -36,7 +36,7 @@ jobs:
       uses: jaid/action-sync-node-meta@v1.4.0
       with:
         direction: overwrite-github
-        githubToken: ${{ secrets.github_token }}
+        githubToken: ${{ secrets.priv_github_token }}
 
     - name: Sync develop with master
       uses: repo-sync/pull-request@v2
