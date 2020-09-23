@@ -1,4 +1,9 @@
-# 1.2.0 (2020-09-23)
+# 1.3.0 (2020-09-23)
+
+
+### Bug Fixes
+
+* Credentials ([a6ba592](https://github.com/governify/governify-web/commit/a6ba592e74ef55431c013055414fecfecdfaee7e))
 
 
 ### Features
