@@ -45,7 +45,7 @@ jobs:
         destination_branch: "develop"
         pr_title: "Synchronize develop with master after release ${{ steps.changelog.outputs.tag }}"
         pr_body: ":crown:"
-        pr_reviewer: "filipowm"
-        pr_assignee: "filipowm"
+        pr_reviewer: "alexgue"
+        pr_assignee: "alexgue"
         pr_label: "auto-pr"                              
         github_token: ${{ secrets.GITHUB_TOKEN }}
