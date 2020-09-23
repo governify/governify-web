@@ -41,7 +41,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dockerfile: ['Dockerfile.builder', 'Dockerfile.runtime', 'Dockerfile.develop']
+        dockerfile: ['Dockerfile.develop']
    
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

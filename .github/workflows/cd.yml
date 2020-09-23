@@ -19,14 +19,8 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: "12.x"
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: build # will run `yarn build` command
-      # ... your other build steps to produce a build directory
-      # e.g. `yarn build` for create-react-app
+      - run: npm install
+      - run: npm build
 
       - uses: netlify/actions/cli@master
         env:
@@ -43,7 +37,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        dockerfile: ['builder', 'runtime', 'develop']
+        dockerfile: ['develop']
    
     steps:
     - uses: actions/checkout@v2
