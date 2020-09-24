@@ -35,10 +35,10 @@ jobs:
           args: deploy --dir=public
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
       - name: Get Deploy Url
-      run: |
-        $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
-        Write-Output $url;
-      shell: pwsh
+        run: |
+          $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
+          Write-Output $url;
+        shell: pwsh
       - name: Create commit comment
         uses: peter-evans/commit-comment@v1
         with:
