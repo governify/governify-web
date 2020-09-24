@@ -39,6 +39,7 @@ jobs:
         run: |
           $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
           Write-Output $url;
+          echo "##[set-output name=url;]$url"
         shell: pwsh
       - name: Create commit comment
         uses: peter-evans/commit-comment@v1
