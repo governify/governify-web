@@ -35,6 +35,7 @@ jobs:
           args: deploy --dir=public
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
       - name: Get Deploy Url
+        id: deploy
         run: |
           $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
           Write-Output $url;
@@ -44,7 +45,7 @@ jobs:
         with:
           body: |
             This commit has been deployed to **Netlify** as a **draft**
-            [Deploy URL]: $url
+            [Deploy URL]: ${{ steps.deploy.outputs.url }}
 
   deployProduction:
     name: Deploy master branch to production
