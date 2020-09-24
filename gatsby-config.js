@@ -35,7 +35,6 @@ const plugins = [
     },
   },
   'gatsby-plugin-emotion',
-  'gatsby-plugin-remove-trailing-slashes',
   {
     resolve: require.resolve(`./plugins/gatsby-plugin-draft`),
     options: {
