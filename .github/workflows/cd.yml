@@ -32,6 +32,43 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           # 5. "gatsby build" creates "public" folder, which is what we are deploying
+          args: deploy --dir=public
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+      - name: Get Deploy Url
+      run: |
+        $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
+        Write-Output $url;
+      shell: pwsh
+      - name: Create commit comment
+        uses: peter-evans/commit-comment@v1
+        with:
+          body: |
+            This commit has been deployed to **Netlify** as a **draft**
+            [Deploy URL]: $url
+
+    deployProduction:
+    name: Deploy master branch to production
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: "12.x"
+      - name: Install dependencies
+        run: yarn install --prod --pure-lockfile
+      - name: Build
+        run: yarn run build
+        env:
+          GATSBY_ENV: "prod"
+
+      - uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          # 5. "gatsby build" creates "public" folder, which is what we are deploying
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
