@@ -9,7 +9,7 @@ on:
 
 jobs:
 
-  deployCommitDraft:
+  deployDevelopment:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
@@ -29,23 +29,17 @@ jobs:
       - uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_DEV_SITE_ID }}
         with:
           # 5. "gatsby build" creates "public" folder, which is what we are deploying
-          args: deploy --dir=public
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
-      - name: Get Deploy Url
-        id: deploy
-        run: |
-          $url = $(ConvertFrom-Json '${{ steps.netlify.outputs.output }}').deploy_url;
-          echo "::set-output name=url::$url"
-        shell: pwsh
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_DEV_SITE_ID"]'
       - name: Create commit comment
         uses: peter-evans/commit-comment@v1
         with:
           body: |
-            This commit has been deployed to **Netlify** as a **draft**
-            [Deploy URL]: ${{ steps.deploy.outputs.url }}
+            This commit has been deployed to **Netlify**
+            [Deploy URL]: https://governify-dev.netlify.app/
 
   deployProduction:
     name: Deploy master branch to production
