@@ -46,7 +46,7 @@ jobs:
             This commit has been deployed to **Netlify** as a **draft**
             [Deploy URL]: $url
 
-    deployProduction:
+  deployProduction:
     name: Deploy master branch to production
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
