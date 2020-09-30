@@ -32,20 +32,20 @@ sidebar:
   # expanded:
   groups:
     - order: 1
-      path: "/gettingstarted"
-      title: ":rocket: Getting Started"
+      path: "/about"
+      title: "📘 About"
     - order: 2
-      path: "/configuration"
-      title: ":wrench: Configuration"
+      path: "/quickstart"
+      title: ":rocket: Quick Start"
     - order: 3
-      path: "/editing"
-      title: ":writing_hand: Editing Content"
+      path: "/customization"
+      title: ":wrench: Customization"
     - order: 4
-      path: "/deployment"
-      title: ":rocket: Deployment"
+      path: "/components"
+      title: "🔗 Components"
     - order: 5
-      path: "/developing"
-      title: ":computer: Developing"
+      path: "/contributing"
+      title: "📣 Contributing"
   links:
     # - text: BooGi
     #   link: https://github.com/filipowm/boogi
@@ -69,11 +69,11 @@ social:
 features:
   darkMode:
     enabled: true 
-    default: true
+    default: false
   editOnRepo:
     location: https://github.com/filipowm/boogi 
     type: github
-    editable: true
+    editable: false
   mermaid:
     language: "mermaid"
     theme: "dark"

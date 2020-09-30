@@ -1,7 +1,7 @@
 module.exports = {
   metadata: {
-    name: 'BooGi',
-    short_name: 'BooGi',
+    name: 'Governify',
+    short_name: 'Governify',
     description: '',
     language: 'en',
     url: 'http://localhost',
@@ -30,8 +30,8 @@ module.exports = {
   pwa: {
     enabled: true, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'BooGi',
-      short_name: 'BooGi',
+      name: 'Governify',
+      short_name: 'Governify',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',

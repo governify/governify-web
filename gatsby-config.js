@@ -6,21 +6,43 @@ const path = require('path');
 const emoji = require('./src/utils/emoji');
 const _ = require('lodash');
 const { truncate } = require('lodash');
+const { readYamlOrJson } = require('./src/utils/fileUtils');
+const externalData = readYamlOrJson(__dirname + '/config/external.yml');
 
 const config = configManager.read();
 configManager.generate(__dirname + '/.generated.config.js', config);
 
+
+
 const plugins = [
-  {
-    resolve: `gatsby-source-git`,
-    options: {
-      name: `repo-one`,
-      remote: `https://github.com/isa-group/governify-project-gauss`,
-      branch: `master`,
-      // Only import the docs folder from a codebase.
-      patterns: `*`
-    }
-  },
+  // {
+  //   resolve: 'gatsby-source-remote-file',
+  //   options: {
+  //     // The source url of the remote file
+  //     url: `https://api.github.com/repos/isa-group/governify-grafana/contents/plugins/README.MD`,
+
+  //     // OPTIONAL
+  //     // Provide a name for the created node (default: "remote")
+  //     name: 'readme-grafana-test',
+  //     ext: '.md',
+
+  //     // OPTIONAL
+  //     // The id of the parent node (i.e. the node to which the new remote File node will be linked to.
+  //    // parentNodeId: 'yadi-yadi-yadi',
+
+  //     // OPTIONAL
+  //     // Adds htaccess authentication to the download request if passed in.
+  //     //auth: { htaccess_user: `USER `, htaccess_pass: `PASSWORD` },
+
+  //     // OPTIONAL
+  //     // Adds extra http headers to download request if passed in.
+  //     httpHeaders: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+  //                   Accept: 'Accept: application/vnd.github.v3.raw'
+  //                   },
+
+
+  //   },
+  // },
   'gatsby-plugin-loadable-components-ssr',
   'gatsby-plugin-sitemap',
   'gatsby-plugin-instagram-embed',
@@ -154,6 +176,8 @@ const plugins = [
     },
   },
 ];
+
+
 
 if (config.features.pageProgress && config.features.pageProgress.enabled) {
   plugins.push({
