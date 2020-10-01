@@ -1,5 +1,5 @@
 ---
-title: "Structure"
+title: "Syntax"
 order: 0
 ---
 **Governify** uses iAgree specification lenguage to model SLAs.

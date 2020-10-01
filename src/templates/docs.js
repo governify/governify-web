@@ -213,6 +213,7 @@ export const pageQuery = graphql`
         editable
         showPreviousNext
         showToc
+        hide
       }
     }
     gitBranch {
