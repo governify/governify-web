@@ -2,7 +2,8 @@
 title: "Dashboards"
 order: 2
 ---
-###Dashboard creation
+### Dashboard creation
+
 In Governify ecosystem, all the data calculated from agreement can be viewed from Dashboards component.
 Dashboards are the way to represent the adherence to the agreement visually.
 To create a new dashboard you only have to create one new item in the dashboards section of the agreement (agreement.context.definitions.dashboards)
