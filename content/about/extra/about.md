@@ -11,5 +11,3 @@ hide: true
 **Rafael Fresno** - *research engineer* @raffrearaUS
 
 **Cesar Garcia** - *research engineer* @cesgarpas
-
-**Antonio Gámez** - *research engineer* @antgamdia
