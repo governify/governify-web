@@ -1,5 +1,5 @@
 ---
 title: "Guarantees"
-order: 0
+order: 2
 ---
 Work in progress.
