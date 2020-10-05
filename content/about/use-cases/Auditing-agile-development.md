@@ -7,7 +7,7 @@ Agile software development is becoming a prominent philosophy amongst the softwa
 A typical workflow is shown in the following figure where different teams contribute individually to a big repository, containing the actual product with the integrated features.
 ![Governify for Support teams Overview](../../images/about/goldenflow.png) 
 
-In this particular set of tools. Pivotal Tracker allows users to manage tasks and GitHub can be used to manage the code using git control version system. Travis CI helps running the tests or lint tools to check that everything is correct before accepting any PR. Heroku can also be used to automatically deploy when pushing to certain branches.
+In this particular set of tools, Pivotal Tracker allows users to manage tasks and GitHub can be used to manage the code using git control version system; Travis CI helps running the tests or lint tools to check that everything is correct before accepting any PR; and Heroku can also be used to automatically deploy when pushing to certain branches.
 
 In spite there exists multiple tools to gather metrics from specific tools, it could be a challenge to analyze if a given teams is fwollowing the given process approprietly since it involve the correlation of actions in multiple tools. As an example, in our scenario the *Branch creation* action in Github should be correlated with the *Start story* action in pivotal. 
 
