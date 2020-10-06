@@ -2,7 +2,7 @@
 title: "Architecture"
 draft: true
 order: 0
-hide: false
+hide: true
 ---
 
 Work in progress.

@@ -1,6 +1,7 @@
 ---
 title: "Overview"
 order: 0
+showMetadata: false
 ---
 Governify is a service agreement management framework that boosts  the service governance by supporting audits in an automated way. It is composed of a set of integrated components that can be combined to create configurable  architectures that adapt to each scenario. The governance platforms built with Governify gather evidences from multiple external sources in the organization (by means of their APIs) and provide visual dashboards to understand the current risks of not meeting the goals.
 

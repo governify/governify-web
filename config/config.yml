@@ -2,7 +2,7 @@
 metadata:
   name: Governify
   short_name: Governify
-  description: Governify - awesome GitBook-like documentation generator using Gatsby
+  description: Governify - A Service agreement management framework
   language: en
   pathPrefix: "/"
   siteImage:
@@ -51,7 +51,7 @@ sidebar:
     #   link: https://github.com/filipowm/boogi
     # - text: React
     #   link: https://reactjs.org
-  ignoreIndex: false
+  ignoreIndex: true
   # poweredBy:
   #   trademark: "/assets/gatsby.png"
   #   name: Test
