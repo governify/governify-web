@@ -15,14 +15,14 @@ header:
   helpUrl: ""
   links:
     - text: Home
-      link: http://localhost:8000
-      external: true
-    - text: Github
-      link: https://github.com/isa-group
-      external: true
-    - text: Docs
       link: "/"
       external: false
+    - text: Docs
+      link: "/about/overview"
+      external: false
+    - text: Github
+      link: https://github.com/governify
+      external: true
 sidebar:
   enabled: true
   # forcedNavOrder:
@@ -44,6 +44,9 @@ sidebar:
       path: "/components"
       title: "🔗 Components"
     - order: 5
+      path: "/reference-guides"
+      title: "📑 Reference Guides"
+    - order: 6
       path: "/contributing"
       title: "📣 Contributing"
   links:
