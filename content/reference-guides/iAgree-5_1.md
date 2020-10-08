@@ -1,5 +1,5 @@
 ---
-title: "Syntax"
+title: "iAgree Syntax 5.1"
 order: 0
 ---
 **Governify** uses iAgree specification lenguage to model SLAs.
@@ -10,21 +10,25 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 
 ## Revision History
+Versions tagged with R are inteded for research purpouses.
+Other versions are operational versions used in real projects.
 
 |Version  | Date         | Notes                          |
 |:------- |:------------ |:---------------------------    |
-| 1.0     | 2013   | Initial WS-Agreement derived DSL.               |
+| 1.0R    | 2013   | Initial WS-Agreement derived DSL.               |
 | 2.0     | 2016   | Move to a new YAML independent syntax.         |
 | 3.0     | 2016   | Changes for interoperabilty with Governify Registry.          |
-| 4.0     | 2017   | Changes for interoperabilty with SLA4OAI.         |
+| 4.0R    | 2017   | Extensions for SLA4OAI.         |
 | 5.0     | 2017   | Improved computers section.         |
-| 6.0     | 2020   | Changing focus from SLA-based to Customer-Agreement-based.         |
+| 5.1     | 2019   | Collector and metrics improvements         |
+| 6.0R    | 2020   | Changing focus from SLA-based to Customer-Agreement-based.         |
 
+# Version 5.1
 
 ## Introduction
-**iAgree** is an open source standard for describing Customer Agreements (CAs).
+**iAgree** is an open source standard for describing Service Level Agreements (SLAs).
 
-This extensible CA definition in a neutral vendor flavor will allow to foster innovation in the area. CAs described with iAgree support including Service Level Agreements (SLAs)-related aspects for human or computational services descriptions, guarantees with or without compensations, billing-related information, etc.
+This SLA definition in a neutral vendor flavor will allow to foster innovation in the area. By this way, management tools can import and measure metrics and build SLAs for composed services in a standard approach.
 
 
 ## Specification
@@ -181,9 +185,6 @@ Holds the main information of the SLA terms.
 | pricing        	| [`PricingObject`](#pricingtobject)            	| **Required**      	| Holds the main information of the SLA pricing.            	|
 | metrics        	| [`MetricsObject`](#metricstobject)            	| **Required**          | Holds the main information of the SLA metric.              	|
 | guarantees     	| Array[[`GuaranteeObject`](#guaranteeobject)]  	| **Required**      	| Holds the main information of the SLA guarantees.            	|
-| configurations 	| [`ConfigurationsObject`](#configurationsobject)  	| Optional              | Holds the main information of the SLA configurations.        	|
-| quotas         	| Array[[`QuotaObject`](#quotaobject)]          	| Optional          	| Holds the main information of the SLA quotas.           	 	|
-| rates          	| Array[[`RateObject`](rateobject)]             	| Optional          	| Holds the main information of the SLA rates.           	 	|
 
 ##### Example
 
@@ -194,9 +195,6 @@ terms:
   pricing: PricingObject
   metrics: MetricsObject
   guarantees: Array[GuaranteeObject]
-  configurations: ConfigurationsObject
-  quotas:  Array[QuotaObject]
-  rates: Array[RateObject]
 ```
 
 
@@ -302,8 +300,7 @@ Holds the main information of a SLA single metric.
 
 | Field name    	| Field type    | Required/Optional 	| Description 	|
 |------------	    |-----------    |-------------------	|-------------	|
-| schema     	    | `Object`      | **Required**      	| metric schema    |
-| type           	| `String`      | **Required**      	| metric type      |
+| measure    	    | `Object`      | **Required**      	| metric schema    |
 | scope         	| `Object`      | **Required**      	| metric scope     |
 
 ##### Example
@@ -312,56 +309,48 @@ Holds the main information of a SLA single metric.
 
 ```
 myMetric1:
-  schema: 
-        $ref: '#/context/definitions/schemas/myMetric'
-  type: consumption
-  scope:
-    myScope:
-        $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
+  measure: 
+    scope:
+      myScope:
+          $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
 ```
  
 ###### SLA for API services
 
 ```
 requests:
-  schema:
-    $ref: '#/context/definitions/schemas/requests'
-  type: consumption
-  scope:
-    resource:
-      $ref: '#/context/definitions/scopes/api/resource'
-    operation:
-      $ref: '#/context/definitions/scopes/api/operation'
-    level:
-      $ref: '#/context/definitions/scopes/oai/level'
-    account:
-      $ref: '#/context/definitions/scopes/oai/account'
+  measure:
+    scope:
+      resource:
+        $ref: '#/context/definitions/scopes/api/resource'
+      operation:
+        $ref: '#/context/definitions/scopes/api/operation'
+      level:
+        $ref: '#/context/definitions/scopes/oai/level'
+      account:
+        $ref: '#/context/definitions/scopes/oai/account'
 resourceInstances:
-  schema:
-    $ref: '#/context/definitions/schemas/resourceInstances'
-  type: check
-  scope:
-    resource:
-      $ref: '#/context/definitions/scopes/api/resource'
-    operation:
-      $ref: '#/context/definitions/scopes/api/operation'
-    level:
-      $ref: '#/context/definitions/scopes/oai/level'
-    account:
-      $ref: '#/context/definitions/scopes/oai/account'
+  measure:
+    scope:
+      resource:
+        $ref: '#/context/definitions/scopes/api/resource'
+      operation:
+        $ref: '#/context/definitions/scopes/api/operation'
+      level:
+        $ref: '#/context/definitions/scopes/oai/level'
+      account:
+        $ref: '#/context/definitions/scopes/oai/account'
 animalTypes:
-  schema:
-    $ref: '#/context/definitions/schemas/animalTypes'
-  type: check
-  scope:
-    resource:
-      $ref: '#/context/definitions/scopes/api/resource'
-    operation:
-      $ref: '#/context/definitions/scopes/api/operation'
-    level:
-      $ref: '#/context/definitions/scopes/oai/level'
-    account:
-      $ref: '#/context/definitions/scopes/oai/account'
+  measure:
+    scope:
+      resource:
+        $ref: '#/context/definitions/scopes/api/resource'
+      operation:
+        $ref: '#/context/definitions/scopes/api/operation'
+      level:
+        $ref: '#/context/definitions/scopes/oai/level'
+      account:
+        $ref: '#/context/definitions/scopes/oai/account'
 ```
  
  
@@ -369,86 +358,23 @@ animalTypes:
 
 ```
 issue_start:
-  schema:
+  measure:
     description: incident start date
     type: string
-  computer: 'http://ppinot.computer.papamoscas-company-devel.governify.io/api/v1/indicators/issue_start/'
+  collector: 'http://ppinot.collector.papamoscas-company-devel.governify.io/api/v1/indicators/issue_start/'
 issue_end:
-  schema:
+  measure:
     description: incident end date
     type: string
-  computer: 'http://ppinot.computer.papamoscas-company-devel.governify.io/api/v1/indicators/issue_end/'
+  collector: 'http://ppinot.collector.papamoscas-company-devel.governify.io/api/v1/indicators/issue_end/'
 issue_duration:
-  schema:
+  measure:
     description: incident duration
     type: string
     unit: seconds
-  computer: >-
-    http://ppinot.computer.papamoscas-company-devel.governify.io/api/v1/indicators/issue_duration/
+  collector: >-
+    http://ppinot.collector.papamoscas-company-devel.governify.io/api/v1/indicators/issue_duration/
 ```
- 
-#### CompensationObject
-Holds the main information of a SLA single compensation.
-
-| Field name  	| Field type                                          	            | Required/Optional 	| Description 	|
-|-------------	|------------------------------------------------------------ 	    |-------------------	|-------------	|
-| over        	| `Object`                                            	            | **Required**      	|  metrics involved in the compensation calculation process           	|
-| of          	| Array[[`ScopedCompensationObject`](#scopedcompensationobject)]   	| Optional      	|  holds the main information of the SLA scoped compensations          	|
-| aggegatedBy 	| `String`                                                      	| Optional          	|  compensation aggregation function           							|
-| groupBy     	| `Object`                                            	            | Optional          	|  compensation aggrupation function           							|
-| upTo        	| `Double`                                            	            | Optional          	|  compensation limit        										   	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-penalties:
-    over:
-      myMetric:
-        $ref: '#/context/definitions/schemas/myMetric'
-    of: ScopedCompensationObject
-    aggregatedBy: sum
-    groupBy:
-      myScope:
-        $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-    upTo: -10
-```
-
-###### SLA for API services
-
-``` 
-penalties:
-    - over:
-        escalatedIncidentPercentage:
-          $ref: '#/context/definitions/schemas/escalatedIncidentPercentage'
-      of: ScopedCompensationObject
-
-```
-
-#### ScopedCompensationObject
-Holds the main information of a SLA single scoped compensation.
-
-| Field name 	| Field type 	| Required/Optional 	| Description 	|
-|------------	|------------	|-------------------	|-------------	|
-| value      	| `String`   	| **Required**      	|  scoped compensation value           		|
-| condition  	| `String`   	| **Required**      	|  scoped compensation condition           	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-- value: '-2'
-  condition: myMetric >= 90.00
-```
-
-###### SLA for human services
-
-``` 
-- value: '-1.5'
-  condition: serviceDesk_KPI_03A > 99.98 && serviceDesk_KPI_03A <= 100.00
-``` 
 
 #### GuaranteeObject
 Holds the main information of a SLA single guarantee.
@@ -456,6 +382,7 @@ Holds the main information of a SLA single guarantee.
 | Field name 	| Field type                                          	 | Required/Optional 	| Description 	|
 |------------	|-----------------------------------------------------	 |-------------------	|-------------	|
 | id         	| `String`                                            	 | **Required**      	| guarantee unique identification            							|
+| description	| `String`                                            	 | Optional         	| guarantee description            							|
 | scope      	| `Object`                                               | **Required**      	| guarantee scope           											|
 | of         	| Array[[`ScopedGuaranteObject`](#scopedguaranteobject)] | **Required**      	| holds the main information of the SLA scoped guarantees            	|
 
@@ -521,7 +448,6 @@ Holds the main information of a SLA single scoped guarantee.
 | window     	| [`WindowObject`](#windowobject)                   	| **Required**      	|  guarantee window      											|
 | evidences  	| Array[`Object`]                                      	| Optional      	|  guarantee evidences       									 	|
 | penalties  	| Array[[`CompensationObject`](#compensationobject)] 	| Optional      	|  holds the main information of the SLA guarantee penalties        |
-| rewards    	| Array[[`CompensationObject`](#compensationobject)] 	| Optional     	|  holds the main information of the SLA guarantee rewards         	|
 
 ##### Example
 
@@ -606,297 +532,6 @@ window:
     type: static
     period: monthly
 ``` 
-
-
-#### ConfigurationsObject
-Holds the main information of the SLA configurations.
-
-| Field name    	            | Field type                                    | Required/Optional 	| Description 	|
-|----------------------------   |------------------------------------------     |-------------------	|-------------	|
-| {{configurationId}}  	    | [`ConfigurationObject`](#configurationobject) | **Required**      	| holds the main information of the SLA configurations            	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-configurations:
-    myConfiguration1: ConfigurationObject
-    myConfiguration2: ConfigurationObject
-    myConfiguration3: ConfigurationObject
-```
-
-###### SLA for API services
-
-``` 
-configurations:
-    availability: ConfigurationObject
-```
-
-
-#### ConfigurationObject
-Holds the main information of a SLA single configuration.
-
-| Field name    | Field type                                    						| Required/Optional 	| Description 	|
-|------------   |---------------------------------------------------------------------  |-------------------	|-------------	|
-| scope  	    | `Object`																| **Required**      	|  configuration scope           								|
-| of     	    | Array[[`ScopedConfigurationObject`](#scopedconfigurationobject)] 		| **Required**      	| holds the main information of the SLA scoped configuration 	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-myConfiguration1:
-  scope:
-    myScope:
-      $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-  of: ScopedConfigurationObject
-```
-
-###### SLA for API services
-
-```
-availability: 
-    scope:
-        plan:
-          $ref: '#/context/definitions/scopes/offering/plan'
-      of: ScopedConfigurationObject
-```
-
-
-#### ScopedConfigurationObject
-Holds the main information of a SLA singled scoped configuration.
-
-| Field name 	| Field type                      	| Required/Optional 	| Description 	|
-|------------	|---------------------------------	|-------------------	|-------------	|
-| scope      	| `Object`	                        | **Required**      	| configuration scope            	|
-| value      	| {`String`, `Number`, `Boolean`} 	| **Required**      	| configuration value            	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-of:
-    - scope:
-        myScope: '*'
-    value: 'true'
-```
-
-###### SLA for API services
-
-```
-of:
-    - scope:
-        plan: '*'
-      value: 'R/00:00:00Z/15:00:00Z'
-    - scope:
-        plan: pro
-      value: 'R/00:00:00Z/23:59:59Z'
-```
-
-
-#### QuotaObject
-Holds the main information of a SLA single quota. 
-
-| Field name 	| Field type                                       	| Required/Optional 	| Description 	|
-|------------	|--------------------------------------------------	|-------------------	|-------------	|
-| id         	| `String`                                         	| **Required**      	| quota unique identification             				|
-| scope      	| `Object`                                         	| **Required**      	| quota scope            								|
-| over       	| `Object`                                         	| **Required**      	| metrics involved in the quota calculation process    	|
-| of         	| Array[[`ScopedQuotaObject`](#scopedquotaobject)] 	| **Required**      	| holds the main information of the SLA scoped quotas.  |
-
-##### Example
-
-###### Synthetic
-
-``` 
--   id: myQuota
-    scope:
-        myScope:
-         $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-    over:
-        myMetric:
-            $ref: '#/terms/metrics/myMetric1'
-    of:  Array[ScopedQuotaObject]
-```
-
-###### SLA for API services
-
-``` 
-- id: quotas_requests
-      scope:
-        plan:
-          $ref: '#/context/definitions/scopes/offering/plan'
-        resource:
-          $ref: '#/context/definitions/scopes/api/resource'
-        operation:
-          $ref: '#/context/definitions/scopes/api/operation'
-        level:
-          $ref: '#/context/definitions/scopes/oai/level'
-        account:
-          $ref: '#/context/definitions/scopes/oai/account'
-      over:
-        requests:
-          $ref: '#/terms/metrics/requests'
-      of: Array[ScopedQuotaObject]
-```
-
-
-#### ScopedQuotaObject
-Holds the main information of a SLA single scoped rate. 
-
-| Field name 	| Field type                                 	| Required/Optional 	| Description 	|
-|------------	|--------------------------------------------	|-------------------	|-------------	|
-| scope      	| `Object`                                   	| **Required**      	| scoped quota scope            							|
-| limits     	| Array[[`LimitObject`](#limitobject)] 	        | **Required**      	| holds the main information of a SLA scoped quota limit  	|
-
-##### Example
-
-###### Synthetic
-
-``` 
--   scope:
-        myScope:
-            $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-    limits: Array[LimitObject] 	
-```
-
-###### SLA for API services
-
-``` 
-- scope:
-    plan: '*'
-    resource: /pets
-    operation: get
-    level: tenant
-    account:
-      $ref: '#/context/consumer'
-    limits:
-    - max: 40
-      period: hourly
-- scope:
-    plan: pro
-    resource: /pets
-    operation: post
-    level: account
-    account: '*'
-  limits:
-    - max: 100
-      period: minutely
-```
-
-
-#### LimitObject
-Holds the main information of a SLA scoped quota/rate limit.
-
-| Field name 	| Field type 	| Required/Optional 	| Description 	|
-|------------	|------------	|-------------------	|-------------	|
-| max        	| `Number`   																			| **Required**   | quota/rate maximum value      																																																																									|
-| period     	| `String`: [`"daily"`, `"weekly"`, `"monthly"`, `"quarterly"`, `"yearly"`]    	| Optional      	|  used period. Supported values are:  `daily`: at the end of every day; `weekly`: at the end of every week; `monthly`: at the end of every month; `quarterly`: at the end of every quarter; `yearly`: at the end of every year    	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-limits:
-    - max: 40
-      period: hourly
-```
-
-
-#### RateObject
-Holds the main information of a SLA single rate. 
-
-| Field name 	| Field type                                       	| Required/Optional 	| Description 	|
-|------------	|--------------------------------------------------	|-------------------	|-------------	|
-| id         	| `String`                                         	| **Required**      	| rate unique identification             				|
-| scope      	| `Object`                                         	| **Required**      	| rate scope           									|
-| over       	| `Object`                                         	| **Required**      	| metrics involved in the rate calculation process     	|
-| of         	| Array[[`ScopedRateObject`](#scopedrateobject)] 	| **Required**      	| holds the main information of the SLA scoped rates.  	|
-
-##### Example
-
-###### Synthetic
-
-``` 
-rates:
-    - id: myRate
-      scope:
-        myScope:
-            $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-      over:
-        myMetric:
-          $ref: '#/terms/metrics/myMetric1'
-      of: Array[ScopedRateObject]
-```
-
-###### SLA for API services
-
-``` 
-rates:
-    - id: rates_requests
-      scope:
-        plan:
-          $ref: '#/context/definitions/scopes/offering/plan'
-        resource:
-          $ref: '#/context/definitions/scopes/api/resource'
-        operation:
-          $ref: '#/context/definitions/scopes/api/operation'
-        level:
-          $ref: '#/context/definitions/scopes/oai/level'
-        account:
-          $ref: '#/context/definitions/scopes/oai/account'
-      over:
-        requests:
-          $ref: '#/terms/metrics/requests'
-      of: Array[ScopedRateObject]
-```
-
-
-#### ScopedRateObject
-Holds the main information of a SLA single scoped rate. 
-
-| Field name 	| Field type                                 	| Required/Optional 	| Description 	|
-|------------	|--------------------------------------------	|-------------------	|-------------	|
-| scope      	| `Object`                                   	| **Required**      	| scoped rate scope            								|
-| limits     	| Array[[`LimitObject`](#limitobject)] 	        | **Required**      	| holds the main information of a SLA scoped rate limit    	|
-
-##### Example
-
-###### Synthetic
-
-``` 
--   scope:
-        myScope:
-            $ref: '#/context/definitions/scopes/myGlobalScope/myScope'
-    limits: Array[LimitObject] 	
-```
-
-###### SLA for API services
-
-``` 
-- scope:
-    plan: '*'
-    resource: /pets
-    operation: get
-    level: account
-    account: '*'
-  limits:
-    - max: 3
-      period: secondly
-- scope:
-    plan: free
-    resource: /pets
-    operation: get
-    level: account
-    account: '*'
-  limits:
-    - max: 1
-      period: secondly
-```
 
 
 ## Examples
