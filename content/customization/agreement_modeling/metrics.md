@@ -7,14 +7,6 @@ Work in progress.
 ## Introduction
 The TPA conformed from several TPs contain all the information needed to compute them. Each guarantee contains an objective, which can involve one or more metrics. The metric is the instrument used to fetch the required information and extract a value for the system to verify the fulfilment of the objective.
 
-
-
-## Metric and Guarantees
-??
-
-## What is a metric?
-??
-
 ## Collectors
 The collectors are the component which receiving a metric as input, are able to connect to the different data sources to extract the information needed for it, and compute the final result.
 
