@@ -906,9 +906,9 @@ Holds the main information of a SLA single scoped rate.
 
 ## Examples
 
-- A basic and synthetic example, in [YAML](./iAgree-example-synthetic.yaml) and [JSON](./iAgree-example-synthetic.json) format, compliant with the current iAgree specification version.
-- A SLA for an API service, in [YAML](./iAgree-example-api.yaml) and [JSON](./iAgree-example-api.json) format, which defines some pricing plans and quotas/rates over "pets" resources.
-- A SLA for a human service, in [YAML](./iAgree-example-process.yaml) and [JSON](./iAgree-example-process.json) format, that tries to regulate some metrics and guantees in a "IT service desk" process.
+- A basic and synthetic example, in [YAML](http://iagree.specs.governify.io/iAgree-example-synthetic.yaml) and [JSON](http://iagree.specs.governify.io/iAgree-example-synthetic.json) format, compliant with the current iAgree specification version.
+- A SLA for an API service, in [YAML](http://iagree.specs.governify.io/iAgree-example-api.yaml) and [JSON](http://iagree.specs.governify.io/iAgree-example-api.json) format, which defines some pricing plans and quotas/rates over "pets" resources.
+- A SLA for a human service, in [YAML](http://iagree.specs.governify.io/iAgree-example-process.yaml) and [JSON](http://iagree.specs.governify.io/iAgree-example-process.json) format, that tries to regulate some metrics and guantees in a "IT service desk" process.
 
 
 ## References
