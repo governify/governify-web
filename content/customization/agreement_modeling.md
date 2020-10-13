@@ -191,6 +191,7 @@ This is an example from a Team Practice agreement using the Event Collector.
                 }
             }
 ```
+You can see a complete guide about metric modelling in the [Metrics section](/metrics).
 
 #### Guarantees
 The guarantees specify the quality or performance that the metrics should have. 
@@ -224,3 +225,4 @@ This is an example using the metric from the previous example:
 }
 ```
 
+You can see a complete guide about guarantees modelling in the [Guarantees section](/guarantees).

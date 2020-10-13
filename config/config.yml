@@ -81,6 +81,7 @@ features:
     language: "mermaid"
     theme: "dark"
     options:
+      themeCSS: ".label foreignObject { font-size: 14px;   overflow: visible; }"
     width: 400
     height: 300
   pageProgress:
