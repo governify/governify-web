@@ -47,6 +47,9 @@ sidebar:
       path: "/reference-guides"
       title: "📑 Reference Guides"
     - order: 6
+      path: "/showcases"
+      title: "🎞 Showcases"
+    - order: 7
       path: "/contributing"
       title: "📣 Contributing"
   links:
