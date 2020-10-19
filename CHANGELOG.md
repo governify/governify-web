@@ -1,3 +1,12 @@
+## [1.8.1](https://github.com/governify/governify-web/compare/v1.8.0...v1.8.1) (2020-10-19)
+
+
+### Bug Fixes
+
+* Actions ([6fcbedc](https://github.com/governify/governify-web/commit/6fcbedc32974653a99491eeeeec79ae7621b3824))
+
+
+
 # [1.8.0](https://github.com/governify/governify-web/compare/v1.7.0...v1.8.0) (2020-10-19)
 
 
