@@ -6,5 +6,5 @@ hide: false
 
 ## Bluejay showcase video:
 
-https://youtu.be/A4xwJMEQh9c
+https://www.youtube.com/watch?v=WathxnobIzc
 

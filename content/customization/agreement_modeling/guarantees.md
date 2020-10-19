@@ -2,9 +2,8 @@
 title: "Guarantees"
 order: 2
 ---
-Work in progress.
 
-After a TP is designed using natural language, it needs to be transformed in order for the system to work with it. iAgree is the syntax used for this transformation, defining what it's called guarantee. The following block belongs to a real guarantee:
+After a Agreement is designed using natural language, it needs to be transformed in order for the system to work with it. iAgree is the syntax used for this transformation, defining what it's called guarantee. The following block belongs to a real guarantee of a an auditing tool used in education for measuring teams behavior:
 
 ```json  class:"lineNo"
 {
