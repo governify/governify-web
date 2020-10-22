@@ -11,6 +11,7 @@ Bluejay can audit one team, multiples teams or an entire company having diferent
 
 You can deploy Bluejay in 10 minutes.
 
+
 ___
 ### Deploying Bluejay
 #### Prerequisites

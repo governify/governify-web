@@ -1,3 +1,30 @@
+## [1.8.1](https://github.com/governify/governify-web/compare/v1.8.0...v1.8.1) (2020-10-19)
+
+
+### Bug Fixes
+
+* Actions ([6fcbedc](https://github.com/governify/governify-web/commit/6fcbedc32974653a99491eeeeec79ae7621b3824))
+
+
+
+# [1.8.0](https://github.com/governify/governify-web/compare/v1.7.0...v1.8.0) (2020-10-19)
+
+
+### Bug Fixes
+
+* Title ([34bc87d](https://github.com/governify/governify-web/commit/34bc87d906ee6e8fb1ed54345c0b73fc0442bffb))
+
+
+### Features
+
+* added examples and completed ([e16540c](https://github.com/governify/governify-web/commit/e16540c184898f1f7f4d10e4ef1f66f8f7a45c9a))
+* Adding hide feature and starting documentation ([49020c3](https://github.com/governify/governify-web/commit/49020c3128de5bb8629c4633f98987efc6212c3a))
+* Changes to deploy first version ([300b278](https://github.com/governify/governify-web/commit/300b2780137e4dffe4ffef401cd1ffb68f78d4cc))
+* guarantees initial version ([09fb2d4](https://github.com/governify/governify-web/commit/09fb2d4fd3eb38c5bff45d0f8d15d39829f71b24))
+* metrics 1st version ([c4d8370](https://github.com/governify/governify-web/commit/c4d83704c36a01561ab0104866a5bd2f683a4df3))
+
+
+
 # [1.7.0](https://github.com/governify/governify-web/compare/v1.6.0...v1.7.0) (2020-09-24)
 
 
