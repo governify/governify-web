@@ -10,13 +10,17 @@ We call this system **Bluejay**, an open source extensible platform that can con
 Bluejay can audit one team, multiples teams or an entire company having diferent *Team Practices*.
 
 You can deploy Bluejay in 10 minutes.
-
-
 ___
 ### Deploying Bluejay
+This guide deploys bluejay with the docker ecosystem and serve it by means of an nginx proxy.
+
 #### Prerequisites
-- Linux server with Docker and Git installed on it. (This guide uses the port 80 and 443 of the server deploying a nginx with Docker)
+- Linux server with the following installed packages:
+   - docker
+   - docker-compose 
 - A domain with the ability to modify DNS records.
+- Ports 80, 443 open on the server. 
+
 #### Infrastructure setup
 1. Create the following DNS A records, pointing to your server IP.
 - ui.bluejay.*[YourDomain]*
@@ -24,20 +28,34 @@ ___
 - reporter.bluejay.*[YourDomain]*
 - dashboard.bluejay.*[YourDomain]*
 - sm.bluejay.*[YourDomain]*
-2. Clone or download Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/governify-project-bluejay-infrastructure)
-3. Open a terminal in the repository folder and execute setup.sh with the following parameters:
 
- `./setup.sh <.YourDomain> <ServerIP> bluejay`
- (It is possible that you need to give permissions to the setup file with chmod or equivalent in order to run it)
+2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/governify-project-bluejay-infrastructure):
+```
+curl https://github.com/governify/governify-project-bluejay-infrastructure/archive/1.12.2.zip -LO
+ ```
 
- When the setup is done, create the SSL certificates for your deployment using the script:
-  `./init-letsencrypt.sh`
+3. Unzip the release
+``` 
+     unzip 1.12.2.zip
+     cd /governify-project-bluejay-infrastructure-1.12.2
+``` 
 
-Governify ecosystem with bluejay services should have been deployed in the system. 
+4. Open a terminal in the repository folder and execute setup.sh with the following parameters:
+```
+ ./setup.sh <.YourDomain> <ServerIP> bluejay
+```
 
-#### Quick tour
+ 5. (Optional) When the setup is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
+```
+  ./init-letsencrypt.sh
+```
+
+Governify ecosystem with bluejay services should have been deployed in the system. Following section guide you through the system:
+
+### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
 The default credentials for this interface is user: admin - password: admin
+
 In this interface you should be able to see a list of all the teams you have in your configuration. If you follow the deployment guide, you must see one example project.
 ![Projects list interface of Governify](../images/auditing_agile/ui-interface.PNG)
 
@@ -56,6 +74,7 @@ Now is time to configure your projects in order to audit them.
 
 #### Configuration
 Bluejay should be able to access team data. To achieve this,the API Keys for each system that will be tracked should be provided.
+
 
 
 #### Customization
