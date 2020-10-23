@@ -15,10 +15,10 @@ You can deploy Bluejay in 10 minutes.
 ___
 ### Deploying Bluejay
 #### Prerequisites
-- Linux server with Docker installed in it.
+- Linux server with Docker and Git installed on it. (This guide uses the port 80 and 443 of the server deploying a nginx with Docker)
 - A domain with the ability to modify DNS records.
 #### Infrastructure setup
-1. Create the following DNS records
+1. Create the following DNS A records, pointing to your server IP.
 - ui.bluejay.*[YourDomain]*
 - registry.bluejay.*[YourDomain]*
 - reporter.bluejay.*[YourDomain]*
@@ -28,19 +28,18 @@ ___
 3. Open a terminal in the repository folder and execute setup.sh with the following parameters:
 
  `./setup.sh <.YourDomain> <ServerIP> bluejay`
+ (It is possible that you need to give permissions to the setup file with chmod or equivalent in order to run it)
 
-Governify ecosystem with bluejay services should have been deployed in the system. Now is time to configure it.
+ When the setup is done, create the SSL certificates for your deployment using the script:
+  `./init-letsencrypt.sh`
 
-#### Configuration
-Bluejay should be able to access team data. To achieve this,the API Keys for each system that will be tracked should be provided.
-Executing the credentials script, and introducing the corresponding API Keys, the system will create all the config file with the credentials needed for the system.
- `./credentials.sh <.YourDomain> <ServerIP> bluejay`
+Governify ecosystem with bluejay services should have been deployed in the system. 
 
 #### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
-In this interface you should be able to see a list of all the teams you have in your configuration.
-
-{IMAGE}
+The default credentials for this interface is user: admin - password: admin
+In this interface you should be able to see a list of all the teams you have in your configuration. If you follow the deployment guide, you must see one example project.
+![Projects list interface of Governify](../images/auditing_agile/ui-interface.PNG)
 
 To start auditing one team, click the "Create TPA" button on the left of the team. This will create a standard and simple agreement for that team, and will start to audit it.
 ![Create TPA Button](../images/auditing_agile/create_tpa.png)
@@ -51,7 +50,12 @@ Agreement terms can be viewed clicking the TPA button.
 Clicking the Dashboard button a new tab will be opened. If you did not logged before, username and password will be asked.
 Default username is governify-admin, and default password is governify-project.
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
+![Dashboard of the example project](../images/auditing_agile/dashboard.png)
 
+Now is time to configure your projects in order to audit them.
+
+#### Configuration
+Bluejay should be able to access team data. To achieve this,the API Keys for each system that will be tracked should be provided.
 
 
 #### Customization
