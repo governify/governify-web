@@ -1,3 +1,7 @@
+## [1.8.2](https://github.com/governify/governify-web/compare/v1.8.1...v1.8.2) (2020-10-25)
+
+
+
 ## [1.8.1](https://github.com/governify/governify-web/compare/v1.8.0...v1.8.1) (2020-10-19)
 
 
