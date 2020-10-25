@@ -40,12 +40,17 @@ curl https://github.com/governify/governify-project-bluejay-infrastructure/archi
      cd /governify-project-bluejay-infrastructure-1.12.2
 ``` 
 
-4. Open a terminal in the repository folder and execute setup.sh with the following parameters:
+4. (Optional) Add the default API keys. This will be used in case the projects API keys for the different tools aren't provided. Pivotal and GitHub keys are needed in the `Quick tour` section.
+```
+  nano configurations/collector-events/authKeys.json
+```
+
+5. Open a terminal in the repository folder and execute setup.sh with the following parameters:
 ```
  ./setup.sh <.YourDomain> <ServerIP> bluejay
 ```
 
- 5. (Optional) When the setup is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
+6. (Optional) When the setup is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
 ```
   ./init-letsencrypt.sh
 ```
@@ -56,28 +61,175 @@ Governify ecosystem with bluejay services should have been deployed in the syste
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
 The default credentials for this interface is user: admin - password: admin
 
-In this interface you should be able to see a list of all the teams you have in your configuration. If you follow the deployment guide, you must see one example project.
+In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
+
 ![Projects list interface of Governify](../images/auditing_agile/ui-interface.PNG)
 
-To start auditing one team, click the "Create TPA" button on the left of the team. This will create a standard and simple agreement for that team, and will start to audit it.
+To start auditing the example project simply click on the "Create TPA" button right next to the team's name (project01). This will create a simple predefined agreement for that team to start auditting it.
+
 ![Create TPA Button](../images/auditing_agile/create_tpa.png)
 
-Once the agreement is created, the project should appear in the Audited Projects column.
-Agreement terms can be viewed clicking the TPA button.
-![Create TPA Button](../images/auditing_agile/audited_buttons.png)
-Clicking the Dashboard button a new tab will be opened. If you did not logged before, username and password will be asked.
-Default username is governify-admin, and default password is governify-project.
+A new tab will open and, once the agreement is created, the TPA view of the project should appear. It contains information about it along the guarantees and metrics in use.
+
+![Create TPA Button](../images/auditing_agile/tpa_view.png)
+
+To calculate data for this project, the top-right blue button `Calculate Metrics` has to be clicked and a form will apear.
+
+![Create TPA Button](../images/auditing_agile/compute_metrics.png)
+
+The dates should be the same as the image in order to appear the correct information and the checkbox has to be accepted. By clicking the `Compute` button the system will start computing and, if everything goes well, after 5-20 seconds, the `TPA data is being generated for the period.` alert message will change to `Points creation ended.`
+
+Clicking the `Dashboard` green button at the top-right corner, a new tab will open. The default username and password are governify-admin and governify-project.
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
+
 ![Dashboard of the example project](../images/auditing_agile/dashboard.png)
 
-Now is time to configure your projects in order to audit them.
+Now is time to configure your own projects in order to audit them.
 
-#### Configuration
-Bluejay should be able to access team data. To achieve this,the API Keys for each system that will be tracked should be provided.
+### Configuration
+Bluejay should be able to access team data. To achieve this, the API Keys for each team that will be tracked should be provided.
 
+There are 3 different files inside the cloned folder for configuring the system in order to start using it:
+ * /configurations/scope-manager/scopes.json
+   * The scope manager is the component serving the information about the projects. This file contains the different tools a team is using as well as information from the members and tokens to access that data.
+ * /configurations/scope-manager/authKeys.json
+   * As some information given by the ScopeManager might be sensitive, this file contains authorized tokens for other components to obtain the sensitive information.
+ * /configurations/collector-events/authKeys.json
+   * This file contains the key for accessing the ScopeManager as well as default keys for the different APIs from where the collector will consume data. These will be used if the tokens are not included in the scope.json for a given team. 
+#### authKeys.json files
+The two authKeys.json files are already preconfigured. In order to connect the collectors and the scope manager, there exista a key that must be the same in order to obtain sensitive information. When running the setup.sh script, these keys are randomly generated so they aren't needed to be changed. 
+``` json  
+/configurations/scope-manager/authKeys.json
+[
+    "Cs6bVCTGWLtXA8gr"
+]
+```
+``` json  
+/configurations/collector-events/authKeys.json
+{
+    "scopeManager": "Cs6bVCTGWLtXA8gr",
+    "github": "",
+    "pivotal": "",
+    "heroku": ""
+}
+```
+If you also want to fill the default keys for the EventCollector to use them in case no key is given in the scopes.json you can do it here. Also as an example, if multiple teams have a common user with access to all projects, you can fill the /configurations/collector-events/authKeys.json with his keys and thus, there is no need to enter any key in the scopes.json file.
 
+#### scope.json
+This file contains all the information from the different courses, teams and members to be identified along the different tools. It is organized with a hierarchy as the following:
+First it has a first array called development which contains the different classes. 
+Each class has a projects array containing all the projects (teams) inside that course. 
+Each project has a members array containing all the members inside that project.
+Each of these objects (course, project, member) follows the same structure:
+``` json
+{
+            "parentId": "parent01",
+            "identities": [],
+            "credentials": [],
+            "childs": []
+}
+```
+ * Identities is used to store the information that identifies that object in the different tools. 
+ * Credentials have all the tokens needed to obtain information from those tools. 
 
-#### Customization
+For example if the object is a project, identities will have information from the different tools and credentials concerning those tools. Their childs are the members so it will have 0 or more member objects inside the members array. 
+
+This is an example scopes.json file:
+
+``` json
+/configurations/scope-manager/scopes.json
+{
+    "development": [
+        {
+            "classId": "class01",
+            "identities": [],
+            "credentials": [],
+            "projects": [
+                {
+                    "projectId": "project01",
+                    "identities": [
+                        {
+                            "source": "github",
+                            "repository": "repo01",
+                            "repoOwner": "owner01"
+                        },
+                        {
+                            "source": "pivotal",
+                            "projectId": 1
+                        },
+                        {
+                            "source": "heroku",
+                            "projectId": "id1"
+                        },
+                        {
+                            "source": "travis"
+                        },
+                        {
+                            "source": "codeclimate"
+                        }
+                    ],
+                    "credentials": [
+                        {
+                          "source": "github",
+                          "apiKey": "githubToken"
+                        },
+                        {
+                          "source": "pivotal",
+                          "apiKey": "pivotalToken"
+                        },
+                        {
+                          "source": "heroku",
+                          "apiKey": "herokuToken"
+                        },
+                        {
+                          "source": "travis",
+                          "apiKey": "travisToken"
+                        },
+                        {
+                          "source": "codeclimate",
+                          "apiKey": "codeclimateToken"
+                        }
+                    ],
+                    "members": [
+                        {
+                            "memberId": 1,
+                            "identities": [
+                                {
+                                    "source": "github",
+                                    "username": "githubName1"
+                                },
+                                {
+                                    "source": "pivotal",
+                                    "username": "pivotalName1"
+                                }
+                            ],
+                            "credentials": []
+                        },
+                        {
+                            "memberId": 2,
+                            "identities": [
+                                {
+                                    "source": "github",
+                                    "username": "githubName2"
+                                },
+                                {
+                                    "source": "pivotal",
+                                    "username": "pivotalName2"
+                                }
+                            ],
+                            "credentials": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+It needs to be filled up with the different teams and members for the system to start auditing them. Also any needed credential for each tool.
+
+### Customization
 Bluejay is customizable in every aspect. You can create new agreements, new dashboard and even new interfaces. Check the following sections:
 - [Agreement Modeling customization](/customization/agreement_modeling)
 - [User Interfaces customization](/customization/user_interfaces)
