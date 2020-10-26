@@ -61,6 +61,8 @@ Governify ecosystem with bluejay services should have been deployed in the syste
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
 The default credentials for this interface is user: admin - password: admin
 
+<Info>This credentials can be changed in the docker-compose.yaml file.</Info>
+
 In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
 
 ![Projects list interface of Governify](../images/auditing_agile/ui-interface.PNG)
@@ -80,6 +82,9 @@ To calculate data for this project, the top-right blue button `Calculate Metrics
 The dates should be the same as the image in order to appear the correct information and the checkbox has to be accepted. By clicking the `Compute` button the system will start computing and, if everything goes well, after 5-20 seconds, the `TPA data is being generated for the period.` alert message will change to `Points creation ended.`
 
 Clicking the `Dashboard` green button at the top-right corner, a new tab will open. The default username and password are governify-admin and governify-project.
+
+<Info>This credentials can be changed once logged in the bottom left of the Dashboard, section Change password.</Info>
+
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
 
 ![Dashboard of the example project](../images/auditing_agile/dashboard.png)
