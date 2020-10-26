@@ -1,3 +1,16 @@
+## [1.9.1](https://github.com/governify/governify-web/compare/v1.9.0...v1.9.1) (2020-10-26)
+
+
+
+# [1.9.0](https://github.com/governify/governify-web/compare/v1.8.2...v1.9.0) (2020-10-25)
+
+
+### Features
+
+* deployment guide configuration ([182792b](https://github.com/governify/governify-web/commit/182792b7cfc1250edfe8eaf677d2c9b434e362fc))
+
+
+
 ## [1.8.2](https://github.com/governify/governify-web/compare/v1.8.1...v1.8.2) (2020-10-25)
 
 
