@@ -29,15 +29,15 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 - dashboard.bluejay.*[YourDomain]*
 - sm.bluejay.*[YourDomain]*
 
-2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/governify-project-bluejay-infrastructure):
+2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
 ```
-curl https://github.com/governify/governify-project-bluejay-infrastructure/archive/1.12.3.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/1.12.3.zip -LO
  ```
 
 3. Unzip the release
 ``` 
 unzip 1.12.3.zip
-cd /governify-project-bluejay-infrastructure-1.12.3
+cd /bluejay-infrastructure-1.12.3
 ``` 
 
 4. Open a terminal in the repository folder and execute setup.sh with the following parameters:
