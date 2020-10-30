@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/governify/governify-web/compare/v1.9.1...v1.10.0) (2020-10-26)
+
+
+### Features
+
+* fixed tokens and images ([07116ec](https://github.com/governify/governify-web/commit/07116ec1624232ec809acb8b3a1b43b6386eb15c))
+
+
+
 ## [1.9.1](https://github.com/governify/governify-web/compare/v1.9.0...v1.9.1) (2020-10-26)
 
 
