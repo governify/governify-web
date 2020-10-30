@@ -209,8 +209,12 @@ This is an example scopes.json template file:
     ]
 }
 ```
-It needs to be filled up with the different teams and members for the system to start auditing them. Also any needed credential for each tool. If the tools are public, no token might be needed. In that case, mind the API rate limits. Heroku cannot work without a token. For default keys for not having to fill them in the scopes.json for each project, keep reading.
+This file needs to be filled up with the different teams and members for the system to start auditing them. Also any needed credential for each tool has to be inserted. If the tools are public, no token might be needed. In that case, mind the API rate limits. Heroku cannot work without a token. For default keys for not having to fill them in the scopes.json for each project, keep reading.
 
+After modifiying this file, the Scope Manager needs to be restarted for it to serve the new scopes:
+```
+docker restart bluejay-scopemanager-container
+```
 
 #### authKeys.json files
 The two authKeys.json files are already preconfigured. In order to connect the collectors and the scope manager, there exist a key that must be the same in order to obtain sensitive information. When running the setup.sh script, these keys are randomly generated so they aren't needed to be changed. 
@@ -234,6 +238,11 @@ The two authKeys.json files are already preconfigured. In order to connect the c
 If you also want to fill the default keys for the EventCollector to use them in case no key is given in the scopes.json you can do it here. As case examples:
  * It is recommended to use a default key for not exceeding API non authenticated rates even if the projects are public.
  * If multiple teams have a common user with access to all projects, you can fill the /configurations/collector-events/authKeys.json with his keys and thus, having no need to enter any key in the scopes.json file.
+
+ After modifiying this two files, the Scope Manager and the Event Collector need to be restarted for them to serve the new scopes:
+```
+docker restart bluejay-scopemanager-container bluejay-eventcollector-container
+```
 
 
 ### Customization
