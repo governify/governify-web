@@ -1,3 +1,13 @@
+## [1.10.1](https://github.com/governify/governify-web/compare/v1.10.0...v1.10.1) (2020-10-30)
+
+
+### Bug Fixes
+
+* auditin-agile reload containers ([9cac92c](https://github.com/governify/governify-web/commit/9cac92c1135923a5782f1781c973d7a71f8b0873))
+* typo ([a3fcb0f](https://github.com/governify/governify-web/commit/a3fcb0f4739cba7d719e98efaa3eb485923149c2))
+
+
+
 # [1.10.0](https://github.com/governify/governify-web/compare/v1.9.1...v1.10.0) (2020-10-26)
 
 
