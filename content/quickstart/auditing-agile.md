@@ -239,7 +239,7 @@ If you also want to fill the default keys for the EventCollector to use them in 
  * It is recommended to use a default key for not exceeding API non authenticated rates even if the projects are public.
  * If multiple teams have a common user with access to all projects, you can fill the /configurations/collector-events/authKeys.json with his keys and thus, having no need to enter any key in the scopes.json file.
 
- After modifiying this two files, the Scope Manager and the Event Collector need to be restarted for them to serve the new scopes:
+ After modifiying this two files, the Scope Manager and the Event Collector need to be restarted for them to serve the new files:
 ```
 docker restart bluejay-scopemanager-container bluejay-eventcollector-container
 ```
