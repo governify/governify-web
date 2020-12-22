@@ -263,5 +263,4 @@ You should now follow the steps in order to accomplish the system deployment. Th
 
 5. (Optional) Lets-encrypt automatic certificates generation - It automatically generates free SSL certificates using [Let's Encript](https://letsencrypt.org/) authority.
 
-Now you can go to the [quick tour](#QUICK_TOUR) to see how the system works.
-
+Now you can go to the quick tour by clicking it on the outline at the right side to see how the system works.
