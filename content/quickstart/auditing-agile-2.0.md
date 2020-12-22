@@ -41,7 +41,7 @@ curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
 unzip 2.0.zip
 cd /bluejay-infrastructure-2.0
 ``` 
-At this point we encourage you to continue ahead with this tutorial but you can also go to the [advanced installation](#ADVANCED_SETUP) method with extra options at the bottom of this page.
+    At this point we encourage you to continue ahead with this tutorial but you can also go to the method with extra options by clicking on it at the table of contents at the right of this page if you prefer.
 
 4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
 
@@ -62,9 +62,11 @@ Governify ecosystem with bluejay services should have been deployed in your mach
 ___
 ### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
-The default credentials for this interface is user: governify-admin - password: governify-project
+The default credentials for this interface are: 
+ * User: governify-admin 
+ * Password: governify-project
 
-<Info>This credentials can be changed in the docker-compose.yaml file.</Info>
+<Info>This credentials can be changed in the .env file.</Info>
 
 In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
 
@@ -253,7 +255,7 @@ You should now follow the steps in order to accomplish the system deployment. Th
 
 ![.env file](../images/auditing_agile/env.PNG)
 
-The first three are mandatory for the system to be deployed but if you also want to set up the default tokens for the different APIs you can do it now. 
+    The first three are mandatory for the system to be deployed but if you also want to set up the default tokens for the different APIs you can do it now. 
 
 3. (Optional) Automatic DNS records gneeration (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file.
 
