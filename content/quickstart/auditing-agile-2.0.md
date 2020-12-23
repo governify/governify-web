@@ -41,7 +41,7 @@ curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
 unzip 2.0.zip
 cd /bluejay-infrastructure-2.0
 ``` 
-    At this point we encourage you to continue ahead with this tutorial but you can also go to the method with extra options by clicking on it at the table of contents at the right of this page if you prefer.
+<Info>At this point we encourage you to continue ahead with this tutorial but you can also go to the method with extra options by clicking on it at the table of contents at the right of this page if you prefer.</Info>
 
 4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
 
@@ -60,6 +60,7 @@ cd /bluejay-infrastructure-2.0
 Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
 
 ___
+
 ### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
 The default credentials for this interface are: 
@@ -255,7 +256,7 @@ You should now follow the steps in order to accomplish the system deployment. Th
 
 ![.env file](../images/auditing_agile/env.PNG)
 
-    The first three are mandatory for the system to be deployed but if you also want to set up the default tokens for the different APIs you can do it now. 
+<Info>The first three are mandatory for the system to be deployed but if you also want to set up the default tokens for the different APIs you can do it now.</Info>
 
 3. (Optional) Automatic DNS records gneeration (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file.
 
