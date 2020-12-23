@@ -1,7 +1,7 @@
 ---
 title: 'Auditing agile development old method'
 order: 2
-hidden: true
+hide: true
 ---
 ## Auditing agile development «Bluejay» 
 ### Introduction
