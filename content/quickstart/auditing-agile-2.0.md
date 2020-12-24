@@ -3,6 +3,7 @@ title: 'Auditing agile development'
 order: 2
 ---
 ## Auditing agile development «Bluejay» 
+<Info>For deploying versions older than 2.0, click on this [link](/auditing-agile)</Info>
 ### Introduction
 Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
 
@@ -41,7 +42,6 @@ curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
 unzip 2.0.zip
 cd /bluejay-infrastructure-2.0
 ``` 
-<Info>At this point we encourage you to continue ahead with this tutorial but you can also go to the method with extra options by clicking on it at the table of contents at the right of this page if you prefer.</Info>
 
 4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
 
@@ -59,6 +59,7 @@ cd /bluejay-infrastructure-2.0
 
 Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
 
+<Info>If you want, there is also an [advanced guide](#advancedsetup) to deploy the system including extra options.</Info>
 ___
 
 ### Quick tour
@@ -238,7 +239,28 @@ Bluejay is customizable in every aspect. You can create new agreements, new dash
 
 ___
 ### Advanced Setup
-This is a guided setup wizard with extra options to deploy the system. To start you should open a terminal in the root folder and execute setupAdvanced.sh:
+This is a guided setup wizard with extra options to deploy the system. 
+
+#### Prerequisites
+- Linux server with the following installed packages:
+   - docker
+   - docker-compose 
+- A domain with the ability to modify DNS records.
+- Ports 80, 443 open on the server. 
+
+#### Infrastructure setup
+To start you should download the infrastructure:
+```
+curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
+ ```
+
+Unzip it:
+``` 
+unzip 2.0.zip
+cd /bluejay-infrastructure-2.0
+``` 
+
+Now, open a terminal in the root folder and execute setupAdvanced.sh script:
 ```
 ./setupAdvanced.sh 
 ```
@@ -256,12 +278,12 @@ You should now follow the steps in order to accomplish the system deployment. Th
 
 ![.env file](../images/auditing_agile/env.PNG)
 
-<Info>The first three are mandatory for the system to be deployed but if you also want to set up the default tokens for the different APIs you can do it now.</Info>
+<Info>The first three variables are mandatory for the system to be deployed. If you also want to set up the default tokens for the different APIs you can do it now but is not necessary yet.</Info>
 
-3. (Optional) Automatic DNS records gneeration (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file.
+3. (Optional) Automatic DNS records gneeration (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file. If you prefer you can create your DNS records on your own using your provider.
 
 4. System deployment - This option will pull the docker images and deploy the system. It will ask if you want to instantiate an nginx in the system to work as a reverse proxy. In case you want to use an existing reverse proxy in your machine you can disable it.
 
 5. (Optional) Lets-encrypt automatic certificates generation - It automatically generates free SSL certificates using [Let's Encript](https://letsencrypt.org/) authority.
 
-Now you can go to the quick tour by clicking it on the outline at the right side to see how the system works.
+Now you can go to the [quick tour](#quicktour) to see how the system works.
