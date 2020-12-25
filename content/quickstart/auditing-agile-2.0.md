@@ -3,10 +3,9 @@ title: 'Auditing agile development'
 order: 2
 ---
 ## Auditing agile development «Bluejay» 
-For deploying versions older than 2.0, click on this [link](/auditing-agile)
-<info>For deploying versions older than 2.0, click on this [link](/auditing-agile)</info>
-<Info>For deploying versions older than 2.0, click on this [link](/auditing-agile)</Info>
-<Info>For deploying versions older than 2.0, click on this <a href="/auditing-agile">link 0</a> [link](/auditing-agile)</Info>
+
+<Info>For deploying versions older than 2.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
+
 ### Introduction
 Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
 
@@ -62,7 +61,8 @@ cd /bluejay-infrastructure-2.0
 
 Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
 
-<Info>If you want, there is also an [advanced guide](#advancedsetup) to deploy the system including extra options.</Info>
+<Info>If you prefer, there is also an <a href="#advancedsetup">advanced guide</a> to deploy the system including extra options.</Info>
+
 ___
 
 ### Quick tour
@@ -245,7 +245,7 @@ ___
 This is a guided setup wizard with extra options to deploy the system. 
 
 #### Prerequisites
-- Linux server with the following installed packages:
+- Linux server with yum package installer or with the following packages already preinstalled:
    - docker
    - docker-compose 
 - A domain with the ability to modify DNS records.
@@ -283,7 +283,17 @@ You should now follow the steps in order to accomplish the system deployment. Th
 
 <Info>The first three variables are mandatory for the system to be deployed. If you also want to set up the default tokens for the different APIs you can do it now but is not necessary yet.</Info>
 
-3. (Optional) Automatic DNS records gneeration (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file. If you prefer you can create your DNS records on your own using your provider.
+3. (Optional) Automatic DNS records generation (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file. If you prefer you can create your DNS records on your own using your provider.
+
+```
+- ui.bluejay.*[YourDomain]*
+- registry.bluejay.*[YourDomain]*
+- reporter.bluejay.*[YourDomain]*
+- dashboard.bluejay.*[YourDomain]*
+- scopes.bluejay.*[YourDomain]*
+- assets.bluejay.*[YourDomain]*
+- director.bluejay.*[YourDomain]*
+```
 
 4. System deployment - This option will pull the docker images and deploy the system. It will ask if you want to instantiate an nginx in the system to work as a reverse proxy. In case you want to use an existing reverse proxy in your machine you can disable it.
 
