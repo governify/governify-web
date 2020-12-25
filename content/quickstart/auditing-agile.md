@@ -1,5 +1,5 @@
 ---
-title: 'Auditing agile development version 1'
+title: 'Auditing agile development 1.*'
 order: 2
 hide: true
 ---

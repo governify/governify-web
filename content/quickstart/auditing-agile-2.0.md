@@ -56,7 +56,7 @@ cd /bluejay-infrastructure-2.0.0
 
 6. (Optional) When the deployment is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
 ```
-  ./utils/init-letsencrypt.sh
+./utils/init-letsencrypt.sh
 ```
 
 Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
@@ -122,10 +122,10 @@ This file contains all the information from the different courses, teams and mem
  * Each of these objects (course, project, member) follows the same structure:
 ``` json
 {
-            "parentId": "parent01",
-            "identities": [],
-            "credentials": [],
-            "childs": []
+    "parentId": "parent01",
+    "identities": [],
+    "credentials": [],
+    "childs": []
 }
 ```
 Inside each object there is two different arrays:
