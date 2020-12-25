@@ -244,14 +244,14 @@ ___
 ### Advanced Setup
 This is a guided setup wizard with extra options to deploy the system. 
 
-#### Prerequisites
+#### Requirements
 - Linux server with yum package installer or with the following packages already preinstalled:
    - docker
    - docker-compose 
 - A domain with the ability to modify DNS records.
 - Ports 80, 443 open on the server. 
 
-#### Infrastructure setup
+#### Advanced infrastructure deploy
 To start you should download the infrastructure:
 ```
 curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
