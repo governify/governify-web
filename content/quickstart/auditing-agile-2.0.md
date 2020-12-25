@@ -4,7 +4,7 @@ order: 2
 ---
 ## Auditing agile development «Bluejay» 
 
-<Info>For deploying versions older than 2.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
+<Info>For deploying versions older than 2.0.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
 
 ### Introduction
 Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
@@ -36,13 +36,13 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 
 2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
  ```
 
 3. Unzip the release
 ``` 
-unzip 2.0.zip
-cd /bluejay-infrastructure-2.0
+unzip 2.0.0.zip
+cd /bluejay-infrastructure-2.0.0
 ``` 
 
 4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
@@ -254,13 +254,13 @@ This is a guided setup wizard with extra options to deploy the system.
 #### Infrastructure setup
 To start you should download the infrastructure:
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.0.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
  ```
 
 Unzip it:
 ``` 
-unzip 2.0.zip
-cd /bluejay-infrastructure-2.0
+unzip 2.0.0.zip
+cd /bluejay-infrastructure-2.0.0
 ``` 
 
 Now, open a terminal in the root folder and execute setupAdvanced.sh script:
