@@ -1,16 +1,18 @@
 ---
-title: 'Auditing agile development 1.*'
+title: 'Auditing agile development'
 order: 2
-hide: true
 ---
 ## Auditing agile development «Bluejay» 
+
+<Info>For deploying versions older than 2.0.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
+
 ### Introduction
 Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
 
 We call this system **Bluejay**, an open source extensible platform that can connect to multiple tools to support software engineering teams continuous improvement processes.
 Bluejay can audit one team, multiples teams or an entire company having diferent *Team Practices*.
 
-You can deploy Bluejay in 10 minutes.
+You can deploy Bluejay in 5 minutes.
 ___
 ### Deploying Bluejay
 This guide deploys bluejay with the docker ecosystem and serve it by means of an nginx proxy.
@@ -28,36 +30,48 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 - registry.bluejay.*[YourDomain]*
 - reporter.bluejay.*[YourDomain]*
 - dashboard.bluejay.*[YourDomain]*
-- sm.bluejay.*[YourDomain]*
+- scopes.bluejay.*[YourDomain]*
+- assets.bluejay.*[YourDomain]*
+- director.bluejay.*[YourDomain]*
 
 2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/1.12.3.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
  ```
 
 3. Unzip the release
 ``` 
-unzip 1.12.3.zip
-cd /bluejay-infrastructure-1.12.3
+unzip 2.0.0.zip
+cd /bluejay-infrastructure-2.0.0
 ``` 
 
-4. Open a terminal in the repository folder and execute setup.sh with the following parameters:
+4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
+
+![.env file](../images/auditing_agile/env.PNG)
+
+5. Deploy the system with the following command:
 ```
-./setup.sh <.YourDomain> <ServerIP> bluejay
+./utils/deploy.sh
 ```
 
-5. (Optional) When the setup is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
+6. (Optional) When the deployment is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
 ```
-  ./init-letsencrypt.sh
+./utils/init-letsencrypt.sh
 ```
 
-Governify ecosystem with bluejay services should have been deployed in the system. Following section guide you through the system:
+Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
+
+<Info>If you prefer, there is also an <a href="#advancedsetup">advanced guide</a> to deploy the system including extra options.</Info>
+
+___
 
 ### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
-The default credentials for this interface is user: admin - password: admin
+The default credentials for this interface are: 
+ * User: governify-admin 
+ * Password: governify-project
 
-<Info>This credentials can be changed in the docker-compose.yaml file.</Info>
+<Info>This credentials can be changed in the .env file.</Info>
 
 In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
 
@@ -87,16 +101,18 @@ Once logged, the dashboard for the project will be opened where all the audit da
 
 Now is time to configure your own projects in order to audit them.
 
+___
 ### Configuration
 Bluejay should be able to access team data. To achieve this, the API Keys for each team that will be tracked should be provided.
 
-There are 3 different files inside the cloned folder for configuring the system in order to start using it:
- * /configurations/scope-manager/scopes.json
+There are 2 different files inside the cloned folder for configuring the system in order to start using it:
+ * /.env
+   * This file contains the environment variables to configure the system, including the different API tokens. You can also change here the password to access the UI and the assets manager Theia UI.
+ * /assets/private/scope-manager/scopes.json
    * The scope manager is the component serving the information about the projects. This file contains the different tools a team is using as well as information from the members and tokens to access that data.
- * /configurations/scope-manager/authKeys.json
-   * As some information given by the ScopeManager might be sensitive, this file contains authorized tokens for other components to obtain the sensitive information.
- * /configurations/collector-events/authKeys.json
-   * This file contains the key for accessing the ScopeManager as well as default keys for the different APIs from where the collector will consume data. These will be used if the tokens are not included in the scope.json for a given team. 
+
+#### .env
+Here are contained all configuaration variables. Enter here your tokens for the different APIs for the Event Collector to use it by default if it is not given for the project in the scope.json file.
 
 #### scope.json
 This file contains all the information from the different courses, teams and members to be identified along the different tools. It is organized with a hierarchy as the following:
@@ -106,10 +122,10 @@ This file contains all the information from the different courses, teams and mem
  * Each of these objects (course, project, member) follows the same structure:
 ``` json
 {
-            "parentId": "parent01",
-            "identities": [],
-            "credentials": [],
-            "childs": []
+    "parentId": "parent01",
+    "identities": [],
+    "credentials": [],
+    "childs": []
 }
 ```
 Inside each object there is two different arrays:
@@ -217,37 +233,70 @@ After modifiying this file, the Scope Manager needs to be restarted for it to se
 docker restart bluejay-scopemanager-container
 ```
 
-#### authKeys.json files
-The two authKeys.json files are already preconfigured. In order to connect the collectors and the scope manager, there exist a key that must be the same in order to obtain sensitive information. When running the setup.sh script, these keys are randomly generated so they aren't needed to be changed. 
-``` json  
-/configurations/scope-manager/authKeys.json
-[
-    "Cs6bVCTGWLtXA8gr"
-]
-```
-``` json  
-/configurations/collector-events/authKeys.json
-{
-    "scopeManager": "Cs6bVCTGWLtXA8gr",
-    "github": "",
-    "pivotal": "",
-    "heroku": "",
-    "travis": "",
-    "codeclimate": ""
-}
-```
-If you also want to fill the default keys for the EventCollector to use them in case no key is given in the scopes.json you can do it here. As case examples:
- * It is recommended to use a default key for not exceeding API non authenticated rates even if the projects are public.
- * If multiple teams have a common user with access to all projects, you can fill the /configurations/collector-events/authKeys.json with his keys and thus, having no need to enter any key in the scopes.json file.
-
- After modifiying this two files, the Scope Manager and the Event Collector need to be restarted for them to serve the new files:
-```
-docker restart bluejay-scopemanager-container bluejay-eventcollector-container
-```
-
-
+___
 ### Customization
 Bluejay is customizable in every aspect. You can create new agreements, new dashboard and even new interfaces. Check the following sections:
 - [Agreement Modeling customization](/customization/agreement_modeling)
 - [User Interfaces customization](/customization/user_interfaces)
 - [Dashboards customization](/customization/dashboards)
+
+___
+### Advanced Setup
+This is a guided setup wizard with extra options to deploy the system. 
+
+#### Requirements
+- Linux server with yum package installer or with the following packages already preinstalled:
+   - docker
+   - docker-compose 
+- A domain with the ability to modify DNS records.
+- Ports 80, 443 open on the server. 
+
+#### Advanced infrastructure deploy
+To start you should download the infrastructure:
+```
+curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
+ ```
+
+Unzip it:
+``` 
+unzip 2.0.0.zip
+cd /bluejay-infrastructure-2.0.0
+``` 
+
+Now, open a terminal in the root folder and execute setupAdvanced.sh script:
+```
+./setupAdvanced.sh 
+```
+![Setup Wizard](../images/auditing_agile/setup_wizard_main.PNG)
+
+You have to enter 1 and press enter in order to go to the configuration menu.
+
+You should now follow the steps in order to accomplish the system deployment. This are the different options:
+
+![Setup Wizard](../images/auditing_agile/setup_wizard_configure.PNG)
+    
+1. (Optional) Docker and Docker Compose installation (yum/AWS) - When used it installs all the needed tools for the system to function  using yum package manager.
+
+2. Environment variables setup - It opens with `nano` the file .env to enter the different environment variables the system needs to function properly. 
+
+![.env file](../images/auditing_agile/env.PNG)
+
+<Info>The first three variables are mandatory for the system to be deployed. If you also want to set up the default tokens for the different APIs you can do it now but is not necessary yet.</Info>
+
+3. (Optional) Automatic DNS records generation (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file. If you prefer you can create your DNS records on your own using your provider.
+
+```
+- ui.bluejay.*[YourDomain]*
+- registry.bluejay.*[YourDomain]*
+- reporter.bluejay.*[YourDomain]*
+- dashboard.bluejay.*[YourDomain]*
+- scopes.bluejay.*[YourDomain]*
+- assets.bluejay.*[YourDomain]*
+- director.bluejay.*[YourDomain]*
+```
+
+4. System deployment - This option will pull the docker images and deploy the system. It will ask if you want to instantiate an nginx in the system to work as a reverse proxy. In case you want to use an existing reverse proxy in your machine you can disable it.
+
+5. (Optional) Lets-encrypt automatic certificates generation - It automatically generates free SSL certificates using [Let's Encript](https://letsencrypt.org/) authority.
+
+Now you can go to the [quick tour](#quicktour) to see how the system works.
