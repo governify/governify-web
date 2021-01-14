@@ -1,3 +1,36 @@
+# [1.11.0](https://github.com/governify/governify-web/compare/v1.10.1...v1.11.0) (2020-12-25)
+
+
+### Bug Fixes
+
+* final formatting fixes ([eaf2cdc](https://github.com/governify/governify-web/commit/eaf2cdca2715367d3a5e6d04aabca687a72b0c3c))
+* format ([b44d2f9](https://github.com/governify/governify-web/commit/b44d2f980025608deb66c6c226b19a2c8413bb68))
+* format and links ([2debd2a](https://github.com/governify/governify-web/commit/2debd2a3981e6a8e797d0f775c4b843267d376b2))
+* formatting ([6d3133d](https://github.com/governify/governify-web/commit/6d3133d7b1f498bc3cca1d4ef7df0dc295fec828))
+* hide ([64b2dd8](https://github.com/governify/governify-web/commit/64b2dd884d917cb4958e7d74ae3e4edab6d5aecd))
+* link ([f9a0aeb](https://github.com/governify/governify-web/commit/f9a0aebcc2785b1e98f07bda23614a597501e18e))
+* links ([726e276](https://github.com/governify/governify-web/commit/726e2760018b77d1ab4b5eff424c1beff1b34cc5))
+* links ([7dffc0d](https://github.com/governify/governify-web/commit/7dffc0dce99a8bc5de0c2fcabd2eb3b63835ecb3))
+* release version ([fa9fc6a](https://github.com/governify/governify-web/commit/fa9fc6a50451399d2f17a7e8332abf79262dbad9))
+* testing links ([d25650e](https://github.com/governify/governify-web/commit/d25650eb4c39f52c1a47e24381d8d963ffb82e0e))
+
+
+### Features
+
+* auditing agile v2 ([ff72907](https://github.com/governify/governify-web/commit/ff72907a7d9a3c9af9992ee2f78d5803179f2578))
+
+
+
+## [1.10.1](https://github.com/governify/governify-web/compare/v1.10.0...v1.10.1) (2020-10-30)
+
+
+### Bug Fixes
+
+* auditin-agile reload containers ([9cac92c](https://github.com/governify/governify-web/commit/9cac92c1135923a5782f1781c973d7a71f8b0873))
+* typo ([a3fcb0f](https://github.com/governify/governify-web/commit/a3fcb0f4739cba7d719e98efaa3eb485923149c2))
+
+
+
 # [1.10.0](https://github.com/governify/governify-web/compare/v1.9.1...v1.10.0) (2020-10-26)
 
 
