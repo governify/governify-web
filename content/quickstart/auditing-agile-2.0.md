@@ -93,7 +93,7 @@ The dates should be the same as the image in order to appear the correct informa
 
 Clicking the `Dashboard` green button at the top-right corner, a new tab will open. The default username and password are governify-admin and governify-project.
 
-<Info>This credentials can be changed once logged in the bottom left of the Dashboard, section Change password.</Info>
+<Info>This credentials can be changed, once logged, going to the icon in the bottom left part of the Dashboard, clicking on preferences, and accessing the section Change password at the top of the page.</Info>
 
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
 
@@ -235,9 +235,9 @@ docker restart bluejay-scopemanager-container
 
 ___
 ### Customization
-Bluejay is customizable in every aspect. You can create new agreements, new dashboard and even new interfaces. Check the following sections:
+Bluejay is customizable in every aspect. You can create new agreements and dashboards. Check the following sections:
 - [Agreement Modeling customization](/customization/agreement_modeling)
-- [User Interfaces customization](/customization/user_interfaces)
+<!-- - [User Interfaces customization](/customization/user_interfaces) -->
 - [Dashboards customization](/customization/dashboards)
 
 ___
