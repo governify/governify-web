@@ -42,5 +42,18 @@ explaining it but it is not used for the compute of the TP.
     * **with**: This object should contain one or more metrics. These metrics are the ones the guarantee is going to use inside the objective.
     * **objective**: Conformed by one or more metrics and a set of operators. The system will first use the numerical operations to calculate a value, and then, it will compare the values using the logical operator. This will define the values that are considered appropriate for the practice and set up a threshold(Line X). In the example, the result values of the metric "PERCENTAGE_STARTEDSTORIES_NEWBRANCH" have to be equal or greater than 75. 
     * **window**: This contains 3 fields: type is used to define a static or dynamic window(static is usually used), period indicates how frequently the practice adherence will be calculated and initial defines the initial date to start spliting using the period field.
-    
 
+Here is a table comparing the different guarantees:
+
+| Guarantee Type  | Metric 1                                          | Metric 2                    | Comparator          | Threshold |
+|-----------------|---------------------------------------------------|-----------------------------|---------------------|-----------|
+| Percentage      | Percentage_NewBranch_StartedStories_Within_A_Day  | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_NewBranch_StartedStories_Bind          | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_OpenPR_FinishedStories_Within_A_Day    | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_OpenPR_FinishedStories_Within_A_Day    | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_MergedPR_DeliveredStories_Within_A_Day | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_MergedPR_DeliveredStories_Within_A_Day | -                           | Metric1 >           | 75        |
+| Percentage      | Percentage_MergedPR_Deploy_Within_A_Day           | -                           | Metric1 >           | 75        |
+| Delta Variation | Value_CC_Coverage                                 | Value_CC_Coverage_Offsetted | Metric1 - Metric2 > | 0         |
+
+A **full list of guarantees examples** can be accessed through [this link](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#guarantees).

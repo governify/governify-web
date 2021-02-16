@@ -16,12 +16,44 @@ The Event Collector is capable of using different data sources as input and join
 
 #### Patterns
 The metrics available to use in the Event Collector follow 4 different patterns:
-1. [Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_1)
-2. [`[MAX|MIN|AVG|STD|NEWEST|LATEST]` `[Property]` value of `[Event]` in `[Tool]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_2)
-3. [`[Frequency]` distribution of `[Event]` in `[Tool]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_3)
-4. [Percentage of `[Event1]` in `[Tool1]` correlated with `[Event2]` in `[Tool2]` within `[window]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_4)
+1. [Number of **[Event]** in **[Tool]** every **[Period]** by **[TEAM|MEMBER]**](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_1)
+2. [**[MAX|MIN|AVG|STD|NEWEST|LATEST]** **[Property]** value of **[Event]** in **[Tool]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_2)
+3. [**[Frequency]** distribution of **[Event]** in **[Tool]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_3)
+4. [Percentage of **[Event1]** in **[Tool1]** correlated with **[Event2]** in **[Tool2]** within **[window]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_4)
 
-Here are 4 different examples with their corresponding JSON format using the patterns above. Note that this is the DSL of the metric and the period is not displayed because it belongs to the guarantee:
+
+| Metric Type | Tool 1          | Event 1                  | Tool 2          | Event 2           | Correlation Type |
+|-------------|-----------------|--------------------------|-----------------|-------------------|------------------|
+| Number      | GitHub          | New Branches             | -               | -                 | -                |
+| Number      | GitHub          | Open PR                  | -               | -                 | -                |
+| Number      | GitHub          | Merged PR                | -               | -                 | -                |
+| Number      | GitHub          | Closed PR                | -               | -                 | -                |
+| Number      | Pivotal Tracker | Started Stories          | -               | -                 | -                |
+| Number      | Pivotal Tracker | Finished Stories         | -               | -                 | -                |
+| Number      | Pivotal Tracker | Delivered Stories        | -               | -                 | -                |
+| Number      | Pivotal Tracker | Accepted Stories         | -               | -                 | -                |
+| Number      | Heroku          | Releases                 | -               | -                 | -                |
+| Number      | Travis          | Builds                   | -               | -                 | -                |
+| Number      | Travis          | Failed Builds            | -               | -                 | -                |
+| Number      | CodeClimate     | Coverage Reports         | -               | -                 | -                |
+| Number      | CodeClimate     | Coverage Reports over 80 | -               | -                 | -                |
+| Value       | CodeClimate     | Coverage                 | -               | -                 | -                |
+| Value       | CodeClimate     | Coverage Offsetted       | -               | -                 | -                |
+| STDEV       | GitHub          | Daily Merged PR          | -               | -                 | -                |
+| Percentage  | GitHub          | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | GitHub          | New Branch               | Pivotal Tracker | Started Stories   | Bind             |
+| Percentage  | GitHub          | Open PR                  | Pivotal Tracker | Finished Stories  | Time Window      |
+| Percentage  | GitHub          | Open PR                  | Pivotal Tracker | Finished Stories  | Bind             |
+| Percentage  | GitHub          | Merge PR                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | GitHub          | Merge PR                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | GitHub Wrapper  | New Branch               | Pivotal Tracker | Started Stories   | Time Window      |
+| Percentage  | Heroku          | Releases                 | Pivotal Tracker | Delivered Stories | Time Window      |
+| Percentage  | Heroku          | Releases                 | Pivotal Tracker | Delivered Stories | Bind             |
+| Percentage  | Travis          | Successful Builds        | Travis          | Builds            | Time Window      |
+| Percentage  | CodeClimate     | Coverage reports over 80 | CodeClimate     | Coverage reports  | Time Window      |
+
+
+Here we are showing 4 different examples with their corresponding JSON format using the patterns above. For a **full list of metric pattern examples**, please follow [this link](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md). Bear in mind that this is the DSL of the metric and the period is not displayed because it belongs to the guarantee:
 1. Number of `STARTED_STORIES` in `PIVOTAL` every `DAY` by `MEMBER`
 ```json
 NUMBER_PT_STARTEDSTORIES
