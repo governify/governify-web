@@ -44,16 +44,16 @@ explaining it but it is not used for the compute of the TP.
     * **window**: This contains 3 fields: type is used to define a static or dynamic window(static is usually used), period indicates how frequently the practice adherence will be calculated and initial defines the initial date to start spliting using the period field.
 
 Here is a table comparing the different guarantees:
+In order to exemplify this, in [this link](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#guarantees) there are a list of guarantees examples. In particular, these guarantees DSLs are contained:
 
-| Guarantee Type  | Metric 1                                          | Metric 2                    | Comparator          | Threshold |
-|-----------------|---------------------------------------------------|-----------------------------|---------------------|-----------|
-| Percentage      | Percentage_NewBranch_StartedStories_Within_A_Day  | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_NewBranch_StartedStories_Bind          | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_OpenPR_FinishedStories_Within_A_Day    | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_OpenPR_FinishedStories_Within_A_Day    | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_MergedPR_DeliveredStories_Within_A_Day | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_MergedPR_DeliveredStories_Within_A_Day | -                           | Metric1 >           | 75        |
-| Percentage      | Percentage_MergedPR_Deploy_Within_A_Day           | -                           | Metric1 >           | 75        |
-| Delta Variation | Value_CC_Coverage                                 | Value_CC_Coverage_Offsetted | Metric1 - Metric2 > | 0         |
+| Description                                                                                                                             | DSL definition                                                                                                                                                    |
+|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Percentage of started stories in Pivotal Tracker correlated with the creation of a branch in GitHub within a day every day by a team    | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_newbranch_started_stories_within_a_day)          |
+| Percentage of started stories in Pivotal Tracker correlated with the creation of a branch in GitHub using a binding every day by a team | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_newbranch_started_stories_within_a_day_bind)     |
+| Percentage of finished stories in Pivotal Tracker correlated with the opening of a PR in GitHub within a day every day by a team        | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_master_pr_open_finsh_stories_within_a_day)       |
+| Percentage of finished stories in Pivotal Tracker correlated with the opening of a PR in GitHub using a binding every day by a team     | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_master_pr_open_finsh_stories_within_a_day_bind)  |
+| Percentage of delivered stories in Pivotal Tracker correlated with the merge of a branch in GitHub within a day every day by a team     | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_master_pr_merge_delvr_stories_within_a_day)      |
+| Percentage of delivered stories in Pivotal Tracker correlated with the merge of a branch in GitHub using a binding every day by a team  | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_master_pr_merge_delvr_stories_within_a_day_bind) |
+| Percentage of merged PR in GitHub correlated with a release in heroku within one hour every day by a team                               | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#75_percent_master_pr_merge_deploy_within_a_day)             |
 
-A **full list of guarantees examples** can be accessed through [this link](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#guarantees).
+There is another [example](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#coverage_delta_variation_higher_equal_zero) using CodeClimate's coverage of the Delta Variation between the last day and the penultimate day, every day by a team.
