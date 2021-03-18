@@ -45,7 +45,7 @@ unzip 2.0.0.zip
 cd /bluejay-infrastructure-2.0.0
 ``` 
 
-4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment.
+4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment. Bear in mind that both *SERVICES_PREFIX* and *DNS_SUFIX* must start with a dot and end without it.
 
 ![.env file](../images/auditing_agile/env.PNG)
 
