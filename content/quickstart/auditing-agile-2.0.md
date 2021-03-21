@@ -25,7 +25,7 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 - Ports 80, 443 open on the server. 
 
 #### Infrastructure setup
-1. Create the following DNS A records, pointing to your server IP.
+1. Create the following DNS A records, pointing to your server IP. If you are deploying locally you can add these to your hosts file pointing to your machine but it only will be accessible by you.
 - ui.bluejay.*[YourDomain]*
 - registry.bluejay.*[YourDomain]*
 - reporter.bluejay.*[YourDomain]*
@@ -36,13 +36,13 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 
 2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/2.1.0.zip -LO
  ```
 
 3. Unzip the release
 ``` 
-unzip 2.0.0.zip
-cd /bluejay-infrastructure-2.0.0
+unzip 2.1.0.zip
+cd /bluejay-infrastructure-2.1.0
 ``` 
 
 4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment. Bear in mind that both *SERVICES_PREFIX* and *DNS_SUFIX* must start with a dot and end without it.
@@ -254,13 +254,13 @@ This is a guided setup wizard with extra options to deploy the system.
 #### Advanced infrastructure deploy
 To start you should download the infrastructure:
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.0.0.zip -LO
+curl https://github.com/governify/bluejay-infrastructure/archive/2.1.0.zip -LO
  ```
 
 Unzip it:
 ``` 
-unzip 2.0.0.zip
-cd /bluejay-infrastructure-2.0.0
+unzip 2.1.0.zip
+cd /bluejay-infrastructure-2.1.0
 ``` 
 
 Now, open a terminal in the root folder and execute setupAdvanced.sh script:
