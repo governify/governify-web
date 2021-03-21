@@ -16,12 +16,22 @@ The Event Collector is capable of using different data sources as input and join
 
 #### Patterns
 The metrics available to use in the Event Collector follow 4 different patterns:
-1. [Number of `[Event]` in `[Tool]` every `[Period]` by `[TEAM|MEMBER]`](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_1)
-2. [`[MAX|MIN|AVG|STD|NEWEST|LATEST]` `[Property]` value of `[Event]` in `[Tool]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_2)
-3. [`[Frequency]` distribution of `[Event]` in `[Tool]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_3)
-4. [Percentage of `[Event1]` in `[Tool1]` correlated with `[Event2]` in `[Tool2]` within `[window]` every `[Period]` by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_4)
+1. [Number of **[Event]** in **[Tool]** every **[Period]** by **[TEAM|MEMBER]**](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_1)
+2. [**[MAX|MIN|AVG|STD|NEWEST|LATEST]** **[Property]** value of **[Event]** in **[Tool]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_2)
+3. [**[Frequency]** distribution of **[Event]** in **[Tool]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_3)
+4. [Percentage of **[Event1]** in **[Tool1]** correlated with **[Event2]** in **[Tool2]** within **[window]** every **[Period]** by team.](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md#pattern_4)
 
-Here are 4 different examples with their corresponding JSON format using the patterns above. Note that this is the DSL of the metric and the period is not displayed because it belongs to the guarantee:
+Right now these are the events available for each tool:
+
+| Tool            | Events                                                                 |
+|-----------------|------------------------------------------------------------------------|
+| GitHub          | New branches, Open PRs, Merged PRs, Closed PRs, PR additions/deletions |
+| Pivotal Tracker | Started stories, Finished stories, Delivered stories, Accepted stories |
+| Heroku          | Releases, Builds                                                       |
+| Travis          | Builds                                                                 |
+| CodeClimate     | Coverage reports                                                       |
+
+Here we are showing 4 different examples with their corresponding JSON format using the patterns above. Bear in mind that this is the DSL of the metric and the period is not displayed because it belongs to the guarantee:
 1. Number of `STARTED_STORIES` in `PIVOTAL` every `DAY` by `MEMBER`
 ```json
 NUMBER_PT_STARTEDSTORIES
@@ -122,6 +132,48 @@ PERCENTAGE_GH_NEWBRANCH_PT_STARTEDSTORIES
       }
     }
 ```
+For a **full list of metric pattern examples**, please follow [this link](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector/README.md) where you can found the following examples:
+
+
+**Non correlation metrics:**
+
+| Metric Type | Tool            | Event                    | DSL Definition                                                                                                                     |
+|-------------|-----------------|--------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Number      | GitHub          | New Branches             | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_gh_newbranch)         |
+| Number      | GitHub          | Open PR                  | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_gh_openpr)            |
+| Number      | GitHub          | Merged PR                | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_gh_mergepr)           |
+| Number      | Pivotal Tracker | Started Stories          | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_pt_startedstories)    |
+| Number      | Pivotal Tracker | Finished Stories         | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_pt_finishedstories)   |
+| Number      | Pivotal Tracker | Delivered Stories        | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_pt_acceptedstories)   |
+| Number      | Pivotal Tracker | Accepted Stories         | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_pt_deliveredstories)  |
+| Number      | Heroku          | Releases                 | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_he_releases)          |
+| Number      | Travis          | Builds                   | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_tr_builds)            |
+| Number      | Travis          | Failed Builds            | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_tr_failedbuilds)      |
+| Number      | CodeClimate     | Coverage Reports         | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_cc_coverage)          |
+| Number      | CodeClimate     | Coverage Reports over 80 | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#number_cc_coverage_over80)   |
+| Value       | CodeClimate     | Coverage                 | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#value_cc_coverage)           |
+| Value       | CodeClimate     | Coverage Offsetted       | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#value_cc_coverage_offset)    |
+| STDev       | GitHub          | Daily Merged PR          | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#stdev_gh_mergepr_daily)      |
+
+
+**Correlation metrics:**
+
+| Metric Type | Tool 1         | Event 1                  | Tool 2          | Event 2           | Correlation Type | DSL Definition                                                                                                                                          |
+|-------------|----------------|--------------------------|-----------------|-------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Percentage  | GitHub         | New Branch               | Pivotal Tracker | Started Stories   | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_newbranch_pt_startedstories)        |
+| Percentage  | GitHub         | New Branch               | Pivotal Tracker | Started Stories   | Bind             | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_newbranch_pt_startedstories_bind)   |
+| Percentage  | GitHub         | Open PR                  | Pivotal Tracker | Finished Stories  | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_openpr_pt_finishedstories)          |
+| Percentage  | GitHub         | Open PR                  | Pivotal Tracker | Finished Stories  | Bind             | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_openpr_pt_finishedstories_bind)     |
+| Percentage  | GitHub         | Merge PR                 | Pivotal Tracker | Delivered Stories | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_mergepr_pt_deliveredstories)        |
+| Percentage  | GitHub         | Merge PR                 | Pivotal Tracker | Delivered Stories | Bind             | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_gh_mergepr_pt_deliveredstories_bind)   |
+| Percentage  | GitHub Wrapper | New Branch               | Pivotal Tracker | Started Stories   | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_ghwr_newbranch_pt_startedstories)      |
+| Percentage  | Heroku         | Releases                 | Pivotal Tracker | Delivered Stories | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_he_releases_pt_deliveredstories)       |
+| Percentage  | Heroku         | Releases                 | Pivotal Tracker | Delivered Stories | Bind             | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_he_releases_pt_deliveredstories_bind)  |
+| Percentage  | Travis         | Successful Builds        | Travis          | Builds            | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_tr_successfulbuilds_tr_builds)         |
+| Percentage  | CodeClimate    | Coverage reports over 80 | CodeClimate     | Coverage reports  | Time Window      | [Show definition](https://github.com/isa-group/governify-examples/blob/master/metrics/event-collector#percentage_cc_coverageover80_cc_coverage)         |
+
+
+
 
 ### Pivotal Tracker Collector
 The PT Collector connects with Pivotal Tracker and can produce more specific metrics using the different payloads. 
