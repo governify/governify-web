@@ -33,6 +33,7 @@ This guide deploys bluejay with the docker ecosystem and serve it by means of an
 - scopes.bluejay.*[YourDomain]*
 - assets.bluejay.*[YourDomain]*
 - director.bluejay.*[YourDomain]*
+- join.bluejay.*[YourDomain]*
 
 2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
 ```
@@ -293,6 +294,7 @@ You should now follow the steps in order to accomplish the system deployment. Th
 - scopes.bluejay.*[YourDomain]*
 - assets.bluejay.*[YourDomain]*
 - director.bluejay.*[YourDomain]*
+- join.bluejay.*[YourDomain]*
 ```
 
 4. System deployment - This option will pull the docker images and deploy the system. It will ask if you want to instantiate an nginx in the system to work as a reverse proxy. In case you want to use an existing reverse proxy in your machine you can disable it.
