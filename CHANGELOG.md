@@ -1,3 +1,20 @@
+# [1.12.0](https://github.com/governify/governify-web/compare/v1.11.0...v1.12.0) (2021-03-21)
+
+
+### Bug Fixes
+
+* links and clearer info box ([3b63ff8](https://github.com/governify/governify-web/commit/3b63ff875483bcf88a02ce7c8416b0e2b7c8dbb8))
+* tables ([888227c](https://github.com/governify/governify-web/commit/888227c78c6e79da33196869fe18a678b49b4628))
+
+
+### Features
+
+* dot web change ([a2c0cb3](https://github.com/governify/governify-web/commit/a2c0cb3c93e433033c3d4f3bcf957f963855d11e))
+* metrics/guarantees tables ([8680cb3](https://github.com/governify/governify-web/commit/8680cb32c7e41173b3e072f75843b283b2cacbc9))
+* table links ([1c47c4d](https://github.com/governify/governify-web/commit/1c47c4dab17f62dbe00730714139032200120a71))
+
+
+
 # [1.11.0](https://github.com/governify/governify-web/compare/v1.10.1...v1.11.0) (2020-12-25)
 
 
