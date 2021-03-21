@@ -1,3 +1,12 @@
+## [1.12.1](https://github.com/governify/governify-web/compare/v1.12.0...v1.12.1) (2021-03-21)
+
+
+### Bug Fixes
+
+* dns and 2.1.0 ([c6e63ac](https://github.com/governify/governify-web/commit/c6e63ac99747c7f7fe0d838ba3e57da330d913e0))
+
+
+
 # [1.12.0](https://github.com/governify/governify-web/compare/v1.11.0...v1.12.0) (2021-03-21)
 
 
