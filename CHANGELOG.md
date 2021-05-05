@@ -1,3 +1,22 @@
+## [1.12.2](https://github.com/governify/governify-web/compare/v1.12.1...v1.12.2) (2021-03-26)
+
+
+### Bug Fixes
+
+* assets version ([570868b](https://github.com/governify/governify-web/commit/570868b6a1656f31a2d13cc6d5c9ee31401b1f4b))
+* join record ([cdf3db5](https://github.com/governify/governify-web/commit/cdf3db5216e96672e48a99a192e051c387e6c026))
+
+
+
+## [1.12.1](https://github.com/governify/governify-web/compare/v1.12.0...v1.12.1) (2021-03-21)
+
+
+### Bug Fixes
+
+* dns and 2.1.0 ([c6e63ac](https://github.com/governify/governify-web/commit/c6e63ac99747c7f7fe0d838ba3e57da330d913e0))
+
+
+
 # [1.12.0](https://github.com/governify/governify-web/compare/v1.11.0...v1.12.0) (2021-03-21)
 
 
