@@ -41,15 +41,18 @@ sidebar:
       path: "/customization"
       title: ":wrench: Customization"
     - order: 4
+      path: "/development"
+      title: "🛠 Development"
+    - order: 5
       path: "/components"
       title: "🔗 Components"
-    - order: 5
+    - order: 6
       path: "/reference-guides"
       title: "📑 Reference Guides"
-    - order: 6
+    - order: 7
       path: "/showcases"
       title: "🎞 Showcases"
-    - order: 7
+    - order: 8
       path: "/contributing"
       title: "📣 Contributing"
   links:
