@@ -82,7 +82,10 @@ external:
 
 ### Deploying the system
 
-The prerequisites for deploying the system are having docker and docker-compose working in the machine and having the ports showed up in the last section available.
+The prerequisites for deploying the system are:
+ - **Git** for cloning the repository
+ - **Docker and docker-compose** installed 
+ - Having the **ports** showed up in the last section available.
 
 #### Steps
 
@@ -100,28 +103,9 @@ docker-compose -f ./docker-compose-local.yaml --env-file ./.env-local up -d
 
 Bear in mind that any key or <a href="#configuration">configuration</a> can be setted up in the .env-local file instead of .env. On any docker-compose-local.yaml or .env-local change, run the step 2 again it order for it to take place. Also any service deployed with node won't use the .env-local variables so make sure they are properly configured.
 
-#### Develop a feature in an existing microservice
+#### Quick tour
+The main interaface is accesible from the UI on **localhost:5100**.
 
-To develop a feature is as simple as shutting the container down and then starting the microservice cloned from GitHub. F.e.: If the collector-events wants to be modified:
-
-1. Stop the container:
-```
-docker stop bluejay-collector-events
-```
-
-2. Clone and start the microservice:
-```
-git clone https://github.com/governify/collector-events
-cd collector-events
-npm i
-node index
-```
-
-It will start in the same port as the container was and will be properly connected to the entire infrastructure.
-___
-
-### Quick tour
-The main interaface is accesible from ui.bluejay.*[YourDomain]*
 The default credentials for this interface are: 
  * User: governify-admin 
  * Password: governify-project
@@ -157,7 +141,7 @@ Once logged, the dashboard for the project will be opened where all the audit da
 Now is time to configure your own projects in order to audit them.
 
 ___
-### Configuration
+#### Configuration
 Bluejay should be able to access team data. To achieve this, the API Keys for each team that will be tracked should be provided.
 
 There are 2 different files inside the cloned folder for configuring the system in order to start using it:
@@ -166,10 +150,10 @@ There are 2 different files inside the cloned folder for configuring the system 
  * /assets/private/scope-manager/scopes.json
    * The scope manager is the component serving the information about the projects. This file contains the different tools a team is using as well as information from the members and tokens to access that data.
 
-#### .env-local
+##### .env-local
 Here are contained all configuaration variables. Enter here your tokens for the different APIs for the Event Collector to use it by default if it is not given for the project in the scope.json file.
 
-#### scope.json
+##### scope.json
 This file contains all the information from the different courses, teams and members to be identified along the different tools. It is organized with a hierarchy as the following:
  * First it has a first array called development which contains the different classes. 
  * Each class has a projects array containing all the projects (teams) inside that course. 
@@ -288,8 +272,29 @@ After modifiying this file, the Scope Manager needs to be restarted for it to se
 docker restart bluejay-scope-manager
 ```
 
+
+#### Develop a feature in an existing microservice
+
+To develop a feature is as simple as shutting the container down and then starting the microservice cloned from GitHub. F.e.: If the collector-events wants to be modified:
+
+1. Stop the container:
+```
+docker stop bluejay-collector-events
+```
+
+2. Clone and start the microservice:
+```
+git clone https://github.com/governify/collector-events
+cd collector-events
+npm i
+node index
+```
+
+It will start in the same port as the container was and will be properly connected to the entire infrastructure.
 ___
-### Customization
+
+___
+#### Customization
 Bluejay is customizable in every aspect. You can create new agreements and dashboards. Check the following sections:
 - [Agreement Modeling customization](/customization/agreement_modeling)
 <!-- - [User Interfaces customization](/customization/user_interfaces) -->
