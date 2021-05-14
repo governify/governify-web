@@ -84,7 +84,7 @@ external:
 
 The prerequisites for deploying the system are:
  - **Git** for cloning the repository
- - **Docker and docker-compose** installed 
+ - **Docker** (v20.0.0 or greater) and **docker-compose** (v1.25.0 or greater) installed 
  - Having the **ports** showed up in the last section available.
 
 #### Steps
