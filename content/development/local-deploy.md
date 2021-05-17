@@ -12,6 +12,8 @@ ___
 ### Infrastructure
 The infrastructure and microservices are already configured to work straight away and be connected. All the infrastructure will be exposed so no docker network is needed. All the components will be deployed locally using the following ports:
 
+<center>
+
 | Component          | Port        |
 |--------------------|-------------|
 | Render             | 5100        |
@@ -25,6 +27,8 @@ The infrastructure and microservices are already configured to work straight awa
 | DB-Mongo-Registry  | 5001        |
 | DB-Influx-Reporter | 5002        |
 | DB-Collector-Redis | 5003        |
+
+</center>
 
 ### Deploying the system
 
