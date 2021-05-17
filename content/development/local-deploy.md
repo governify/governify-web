@@ -10,75 +10,21 @@ In order to develop any feature or adding a new component to Bluejay's ecosystem
 The easiest aproach is to deploy using docker the entire infrastructure and, in case a microservice is needed to be modified, stop the container and start it with node locally so the container has not to be builded and deployed with each change.
 ___
 ### Infrastructure
-The infrastructure and microservices are already configured to work straight away and be connected. All the infrastructure will be exposed so no docker network is needed. This is the infrastructure for local deployment:
+The infrastructure and microservices are already configured to work straight away and be connected. All the infrastructure will be exposed so no docker network is needed. All the components will be deployed locally using the following ports:
 
-```yaml
-internal:
-  render:
-    default: 'angular'
-    angular: 'http://host.docker.internal:5100'
-  assets:
-    default: 'theia'
-    theia: 'http://host.docker.internal:5200'
-  reporter:
-    default: 'grafana'
-    grafana: 'http://host.docker.internal:5300'
-  registry:
-    default: 'standard'
-    standard: 'http://host.docker.internal:5400'
-  collector:
-    default: 'events'
-    events: 'http://host.docker.internal:5500'
-    dynamic: 'http://host.docker.internal:5501'
-    ppinot: 'http://host.docker.internal:5502'
-    pivotal: 'http://host.docker.internal:5503'
-    github: 'http://host.docker.internal:5504'
-    osseco: 'http://host.docker.internal:5505'
-  dashboard:
-    default: 'grafana'
-    grafana: 'http://host.docker.internal:5600'
-  scopes:
-    default: 'bluejay'
-    bluejay: 'http://host.docker.internal:5700'
-  director:
-    default: 'standard'
-    standard: 'http://host.docker.internal:5800'
-  database:
-    default: 'mongo-registry'
-    mongo-registry: 'mongodb://host.docker.internal:5001'
-    influx-reporter: 'http://host.docker.internal:5002'
-    redis-ec: 'redis://host.docker.internal:5003'
-external:
-  render:
-    default: 'angular'
-    angular: 'http://localhost:5100'
-  assets:
-    default: 'theia'
-    theia: 'http://localhost:5200'
-  reporter:
-    default: 'grafana'
-    grafana: 'http://localhost:5300'
-  registry:
-    default: 'standard'
-    standard: 'http://localhost:5400'
-  collector:
-    default: 'events'
-    events: 'http://localhost:5500'
-    dynamic: 'http://localhost:5501'
-    ppinot: 'http://localhost:5502'
-    pivotal: 'http://localhost:5503'
-    github: 'http://localhost:5504'
-    osseco: 'http://localhost:5505'
-  dashboard:
-    default: 'grafana'
-    grafana: 'http://localhost:5600'
-  scopes:
-    default: 'bluejay'
-    bluejay: 'http://localhost:5700'
-  director:
-    default: 'standard'
-    standard: 'http://localhost:5800'
-```
+| Component          | Port        |
+|--------------------|-------------|
+| Render             | 5100        |
+| Assets             | 5200        |
+| Reporter           | 5300        |
+| Registry           | 5400        |
+| Collector-events   | 5500        |
+| Dashboard          | 5600        |
+| Scopes             | 5700        |
+| Director           | 5800        |
+| DB-Mongo-Registry  | 5001        |
+| DB-Influx-Reporter | 5002        |
+| DB-Collector-Redis | 5003        |
 
 ### Deploying the system
 
