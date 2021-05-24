@@ -14,6 +14,10 @@ For making the process of adding teams to be audited in the system more intuitiv
 
 By default, it can be accessed through https://join[BLUEJAY_SERVICES_PREFIX][BLUEJAY_DNS_SUFFIX] (f.e. https://join.bluejay.mydomain.org) in case Bluejay is deployed in the cloud or by accessing to http://localhost:6001 if it is deployed locally.
 
+**Bear in mind** that when registering a team to a course, the system will look for:
+- A **TPA template** called the same as the course in the assets in the folder /public/renders/tpa and use it to generate the TPA for the team. In case there this template does not exist, it will use template.yaml as TPA template.
+- A **director script** called the same as the course in the assets in the folder /public/director and a **json** containing the information about the interval and start and end of task execution and will add it to the director for it to function. In case there isn't, the director won't do anything. This has to be configured for the system to automatically generate data about the team.
+
 #### Full register
 It offers an interface that works in three steps:
 1. First the GitHub Repository URL is entered and "Check" button is pressed. It will check for any mistakes on the info.yml file and, if everything is ok a second section will appear. In case you still don't have the info.yml file in the root of your repo (main or master branch) you can check this [template](https://github.com/governify/audited-project-template/blob/main/info.yml) or this [example](https://github.com/governifyauditor/goldenflow-showcase-project/blob/main/info.yml) and add it before continuing.
