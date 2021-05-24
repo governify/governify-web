@@ -39,11 +39,11 @@ The prerequisites for deploying the system are:
 
 #### Steps
 
-1. Clone the repository and checkout to the assets branch:
+1. Clone the repository and checkout to the develop branch:
 ```
 git clone https://github.com/governify/bluejay-infrastructure
 cd bluejay-infrastructure
-git checkout origin/assets
+git checkout origin/develop
 ```
 
 2. Deploy the system
