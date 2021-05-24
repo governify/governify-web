@@ -1,110 +1,74 @@
 ---
-title: 'Auditing agile development'
-order: 1
+title: 'Setting up the system locally'
+order: 2
 ---
-## Auditing agile development «Bluejay» 
 
-<Info>For deploying versions older than 2.0.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
+## Introduction
+This guide for locally deploying the development environment works for any system (Bluejay, Galibo...). To exemplify it, we are going to use <strong>Bluejay</strong> including its specific components.
 
-### Introduction
-Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
+In order to develop any feature or adding a new component to Bluejay's ecosystem, the best way to do it is by deploying all the components locally.
 
-We call this system **Bluejay**, an open source extensible platform that can connect to multiple tools to support software engineering teams continuous improvement processes.
-Bluejay can audit one team, multiples teams or an entire company having diferent *Team Practices*.
-
-You can deploy Bluejay in 5 minutes.
+The easiest aproach is to deploy using docker the entire infrastructure and, in case a microservice is needed to be modified, stop the container and start it with node locally so the container has not to be builded and deployed with each change.
 ___
-### Deploying Bluejay
-This guide deploys bluejay with the docker ecosystem and serve it by means of an nginx proxy.
+## Infrastructure
+The infrastructure and microservices are already configured to work straight away and be connected (docker or node). All the infrastructure will be exposed so no docker network is needed. All the components will be deployed locally using the following ports:
 
-#### Prerequisites
-- Linux server with the following installed packages:
-   - docker
-   - docker-compose (version 1.27 or greater)
-- A domain with the ability to modify DNS records.
-- Ports 80, 443 open on the server. 
+<center>
 
-#### Infrastructure setup
-1. Create the following DNS A records, pointing to your server IP. If you are deploying locally you can add these to your hosts file pointing to your machine but it only will be accessible by you.
-- ui.bluejay.*[YourDomain]*
-- registry.bluejay.*[YourDomain]*
-- reporter.bluejay.*[YourDomain]*
-- dashboard.bluejay.*[YourDomain]*
-- scopes.bluejay.*[YourDomain]*
-- assets.bluejay.*[YourDomain]*
-- director.bluejay.*[YourDomain]*
-- join.bluejay.*[YourDomain]*
+| Component          | Port        |
+|--------------------|-------------|
+| Render             | 5100        |
+| Assets             | 5200        |
+| Reporter           | 5300        |
+| Registry           | 5400        |
+| Collector-events   | 5500        |
+| Dashboard          | 5600        |
+| Scopes             | 5700        |
+| Director           | 5800        |
+| DB-Mongo-Registry  | 5001        |
+| DB-Influx-Reporter | 5002        |
+| DB-Collector-Redis | 5003        |
 
-2. Download latest release of Bluejay Infrastructure repository [Bluejay Infrastructure](https://github.com/governify/bluejay-infrastructure):
+</center>
+
+The default configuration of the infrastructure is available [here](https://github.com/governify/bluejay-infrastructure/blob/main/assets/public/infrastructure-local.yaml).
+
+## Deploying the system
+
+The prerequisites for deploying the system are:
+ - **Git** for cloning the repository
+ - **Docker** (v20.0.0 or greater) and **docker-compose** (v1.25.0 or greater) installed 
+ - Having the **ports** showed up in the last section available.
+
+### Steps
+
+0. In case you are running a linux machine, you need to asociate the host.docker.internal url to 172.17.0.1 (docker's gateway)
 ```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.2.0.zip -LO
- ```
-
-3. Unzip the release
-``` 
-unzip 2.2.0.zip
-cd /bluejay-infrastructure-2.2.0
-``` 
-
-4. Edit `.env` located at the root of the folder. This file contains all the environmental variables for the system to work as intended. By now you should at least fill the first three variables concerning the deployment. Bear in mind that both *SERVICES_PREFIX* and *DNS_SUFIX* must start with a dot and end without it.
-
-```
-# GENERAL (Mandatory for deployment)
-SERVICES_PREFIX=                    # Ex: .bluejay
-DNS_SUFFIX=                         # Ex: .bluejay
-SERVER_IP=                          # Ex: .bluejay
-
-# Infrastructure config file path. No need to be modified
-GOV_INFRASTRUCTURE=http://bluejay-assets-manager/api/v1/public/infrastructure.yaml
-
-# EVENT COLLECTOR
-KEY_GITHUB=                         # Token
-KEY_PIVOTAL=                        # Token
-KEY_HEROKU=                         # Token
-KEY_TRAVIS_PUBLIC=                  # Token
-KEY_TRAVIS_PRIVATE=                 # Token
-KEY_CODECLIMATE=                    # Token
-KEY_PSEUDONYMIZER=                  # Token
-
-# FRONTENDS ACCESS ACCOUNT
-USER_RENDER=governify-admin         # UI Access user
-PASS_RENDER=governify-project       # UI Access pass
-USER_ASSETS=governify-admin         # Assets Access user
-PASS_ASSETS=governify-project       # Assets Access pass
-
-# ASSETS MANAGER
-KEY_ASSETS_MANAGER_PRIVATE={{RANDOM_KEY1}}  # No need to modify
-
-# SCOPE MANAGER
-KEY_SCOPE_MANAGER={{RANDOM_KEY2}}           # No need to modify
-
-# COMPOSE CONFIG
-COMPOSE_HTTP_TIMEOUT=200                    # No need to modify
+host-manager -add host.docker.internal 172.17.0.1
 ```
 
-5. Deploy the system with the following command:
+1. Clone the repository and checkout to the develop branch:
 ```
-./utils/deploy.sh
-```
-
-6. (Optional) When the deployment is done, create the SSL certificates for your deployment using [Lets Encript](https://letsencrypt.org/):
-```
-./utils/init-letsencrypt.sh
+git clone https://github.com/governify/bluejay-infrastructure
+cd bluejay-infrastructure
+git checkout origin/develop
 ```
 
-Governify ecosystem with bluejay services should have been deployed in your machine. The following section will guide you through the system.
+2. Deploy the system
+```
+docker-compose -f ./docker-compose-local.yaml --env-file ./.env-local up -d
+```
 
-<Info>If you prefer, there is also an <a href="#advancedsetup">advanced guide</a> to deploy the system including extra options.</Info>
-
-___
+Bear in mind that any key or <a href="#configuration">configuration</a> can be setted up in the .env-local file instead of .env. On any docker-compose-local.yaml or .env-local change, run the step 2 again it order for it to take place. Also any service deployed with node won't use the .env-local variables so make sure they are properly configured.
 
 ### Quick tour
-The main interaface is accesible from ui.bluejay.*[YourDomain]*
+The main interaface is accesible from the UI on **http://localhost:5100**.
+
 The default credentials for this interface are: 
  * User: governify-admin 
  * Password: governify-project
 
-<Info>This credentials can be changed in the .env file.</Info>
+<Info>This credentials can be changed in the .env-local file.</Info>
 
 In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
 
@@ -139,12 +103,12 @@ ___
 Bluejay should be able to access team data. To achieve this, the API Keys for each team that will be tracked should be provided.
 
 There are 2 different files inside the cloned folder for configuring the system in order to start using it:
- * /.env
+ * /.env-local
    * This file contains the environment variables to configure the system, including the different API tokens. You can also change here the password to access the UI and the assets manager Theia UI.
  * /assets/private/scope-manager/scopes.json
    * The scope manager is the component serving the information about the projects. This file contains the different tools a team is using as well as information from the members and tokens to access that data.
 
-#### .env
+#### .env-local
 Here are contained all configuaration variables. Enter here your tokens for the different APIs for the Event Collector to use it by default if it is not given for the project in the scope.json file.
 
 #### scope.json
@@ -266,71 +230,30 @@ After modifiying this file, the Scope Manager needs to be restarted for it to se
 docker restart bluejay-scope-manager
 ```
 
+
+### Develop a feature in an existing microservice
+
+To develop a feature is as simple as shutting the container down and then starting the microservice cloned from GitHub. F.e.: If the collector-events wants to be modified:
+
+1. Stop the container:
+```
+docker stop bluejay-collector-events
+```
+
+2. Clone and start the microservice:
+```
+git clone https://github.com/governify/collector-events
+cd collector-events
+npm i
+node index
+```
+
+It will start in the same port as the container was and will be properly connected to the entire infrastructure.
+___
+
 ___
 ### Customization
 Bluejay is customizable in every aspect. You can create new agreements and dashboards. Check the following sections:
 - [Agreement Modeling customization](/customization/agreement_modeling)
 <!-- - [User Interfaces customization](/customization/user_interfaces) -->
 - [Dashboards customization](/customization/dashboards)
-
-___
-### Advanced Setup
-This is a guided setup wizard with extra options to deploy the system. 
-
-#### Requirements
-- Linux server with yum package installer or with the following packages already preinstalled:
-   - docker
-   - docker-compose (version 1.27 or greater)
-- A domain with the ability to modify DNS records.
-- Ports 80, 443 open on the server. 
-
-#### Advanced infrastructure deploy
-To start you should download the infrastructure:
-```
-curl https://github.com/governify/bluejay-infrastructure/archive/2.2.0.zip -LO
- ```
-
-Unzip it:
-``` 
-unzip 2.2.0.zip
-cd /bluejay-infrastructure-2.2.0
-``` 
-
-Now, open a terminal in the root folder and execute setupAdvanced.sh script:
-```
-./setupAdvanced.sh 
-```
-![Setup Wizard](../images/auditing_agile/setup_wizard_main.PNG)
-
-You have to enter 1 and press enter in order to go to the configuration menu.
-
-You should now follow the steps in order to accomplish the system deployment. This are the different options:
-
-![Setup Wizard](../images/auditing_agile/setup_wizard_configure.PNG)
-    
-1. (Optional) Docker and Docker Compose installation (yum/AWS) - When used it installs all the needed tools for the system to function  using yum package manager.
-
-2. Environment variables setup - It opens with `nano` the file .env to enter the different environment variables the system needs to function properly. 
-
-![.env file](../images/auditing_agile/env.PNG)
-
-<Info>The first three variables are mandatory for the system to be deployed. If you also want to set up the default tokens for the different APIs you can do it now but is not necessary yet.</Info>
-
-3. (Optional) Automatic DNS records generation (DynaHosting) - In case you have a Dyna Hosting account, you can generate DNS records using this option. When used you will be prompted to enter user and password and it will automatically create them using the domain entered previously in the .env file. If you prefer you can create your DNS records on your own using your provider.
-
-```
-- ui.bluejay.*[YourDomain]*
-- registry.bluejay.*[YourDomain]*
-- reporter.bluejay.*[YourDomain]*
-- dashboard.bluejay.*[YourDomain]*
-- scopes.bluejay.*[YourDomain]*
-- assets.bluejay.*[YourDomain]*
-- director.bluejay.*[YourDomain]*
-- join.bluejay.*[YourDomain]*
-```
-
-4. System deployment - This option will pull the docker images and deploy the system. It will ask if you want to instantiate an nginx in the system to work as a reverse proxy. In case you want to use an existing reverse proxy in your machine you can disable it.
-
-5. (Optional) Lets-encrypt automatic certificates generation - It automatically generates free SSL certificates using [Let's Encript](https://letsencrypt.org/) authority.
-
-Now you can go to the [quick tour](#quicktour) to see how the system works.
