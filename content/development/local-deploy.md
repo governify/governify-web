@@ -42,6 +42,11 @@ The prerequisites for deploying the system are:
 
 ### Steps
 
+0. In case you are running a linux machine, you need to asociate the host.docker.internal url to 172.17.0.1 (docker's gateway)
+```
+host-manager -add host.docker.internal 172.17.0.1
+```
+
 1. Clone the repository and checkout to the develop branch:
 ```
 git clone https://github.com/governify/bluejay-infrastructure
