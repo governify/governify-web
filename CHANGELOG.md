@@ -1,3 +1,24 @@
+# [1.13.0](https://github.com/governify/governify-web/compare/v1.12.2...v1.13.0) (2021-05-24)
+
+
+### Bug Fixes
+
+* added versions ([1f524a7](https://github.com/governify/governify-web/commit/1f524a77452b0a3cd1dca363a97f8f0c6875d4ca))
+* bluejay specific changes ([690ef45](https://github.com/governify/governify-web/commit/690ef457f2e8a8f7ca97561b82de24ebde92cce3))
+* branch to develop ([1d0678a](https://github.com/governify/governify-web/commit/1d0678a1ffc96d25a32e767d9a81494a21f6a6d1))
+* center table ([8d2571c](https://github.com/governify/governify-web/commit/8d2571c1fda730f927ed41944ad76712a46e1350))
+* local deployment ([337c6b4](https://github.com/governify/governify-web/commit/337c6b4fb105cd952404cabb5df56981c7c367eb))
+* moved deploy to development ([4239ab3](https://github.com/governify/governify-web/commit/4239ab3d91f9c013d295e748c1922c2be90f2ae3))
+* remove todo ([93c3339](https://github.com/governify/governify-web/commit/93c3339056e777107d33f2fe7e70202a7ec07b49))
+
+
+### Features
+
+* commons, local deploy ([59f4999](https://github.com/governify/governify-web/commit/59f4999180f35a55a0695daa1d8e110eb512edc9))
+* infrastructure ports ([5f1295f](https://github.com/governify/governify-web/commit/5f1295fd8f37d3dcd0ae51dc2de5de5efcbabd0b))
+
+
+
 ## [1.12.2](https://github.com/governify/governify-web/compare/v1.12.1...v1.12.2) (2021-03-26)
 
 
