@@ -6,8 +6,6 @@ order: 2
 
 As it was explained <a href="/quickstart/auditing-agile-2.0#scope.json">here</a>, the scope.json contains all the information about courses, teams and members available as an API (Scope Manager) for the other components to have access to it.
 
-
-
 ### Join
 
 For making the process of adding teams to be audited in the system more intuitive, "Join" is another microservice serving a simple frontend which is enough for this purpose. It gives the teams the ability to register by themselves into the system without the need of an administrator to do it.
@@ -15,8 +13,8 @@ For making the process of adding teams to be audited in the system more intuitiv
 By default, it can be accessed through https://join[BLUEJAY_SERVICES_PREFIX][BLUEJAY_DNS_SUFFIX] (f.e. https://join.bluejay.mydomain.org) in case Bluejay is deployed in the cloud or by accessing to http://localhost:6001 if it is deployed locally.
 
 **Bear in mind** that when registering a team to a course, the system will look for:
-- A **TPA template** called the same as the course in the assets in the folder /public/renders/tpa and use it to generate the TPA for the team. In case there this template does not exist, it will use template.yaml as TPA template.
-- A **director script** called the same as the course in the assets in the folder /public/director and a **json** containing the information about the interval and start and end of task execution and will add it to the director for it to function. In case there isn't, the director won't do anything. This has to be configured for the system to automatically generate data about the team.
+- A **TPA template** called the same as the course in the assets folder `/public/renders/tpa` and use it to generate the TPA for the team. In case there this template does not exist, it will use template.yaml as TPA template.
+- A **director script** and a **json** called both the same as the course in the assets folder `/public/director`. The json contains the execution information (interval, start and end) to enable it at the Director to call the script. In case these files don't exist, the director won't be called. These files have to be configured for the system to automatically generate data about the team.
 
 #### Full register
 It offers an interface that works in three steps:
