@@ -6,6 +6,9 @@ order: 2
 
 As it was explained <a href="/quickstart/auditing-agile-2.0#scope.json">here</a>, the scope.json contains all the information about courses, teams and members available as an API (Scope Manager) for the other components to have access to it.
 
+![Successful join](../images/join/success.PNG)
+
+
 ### Join
 
 For making the process of adding teams to be audited in the system more intuitive, "Join" is another microservice serving a simple frontend which is enough for this purpose. It gives the teams the ability to register by themselves into the system without the need of an administrator to do it.
