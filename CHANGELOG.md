@@ -1,3 +1,17 @@
+# [1.14.0](https://github.com/governify/governify-web/compare/v1.13.0...v1.14.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* concepts better explained ([9033362](https://github.com/governify/governify-web/commit/9033362f782f9b84384bd102587dd87688baa037))
+
+
+### Features
+
+* join image ([2f1c39d](https://github.com/governify/governify-web/commit/2f1c39db1283435b28c50d1ef434d07d7047cdd9))
+
+
+
 # [1.13.0](https://github.com/governify/governify-web/compare/v1.12.2...v1.13.0) (2021-05-24)
 
 
