@@ -1,3 +1,12 @@
+# [1.15.0](https://github.com/governify/governify-web/compare/v1.14.0...v1.15.0) (2021-05-31)
+
+
+### Features
+
+* add showcase url duplicated ([7420352](https://github.com/governify/governify-web/commit/74203522767064de36bf3a0111f6432e21f1551c))
+
+
+
 # [1.14.0](https://github.com/governify/governify-web/compare/v1.13.0...v1.14.0) (2021-05-25)
 
 
