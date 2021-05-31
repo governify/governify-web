@@ -55,6 +55,10 @@ sidebar:
     - order: 8
       path: "/contributing"
       title: "📣 Contributing"
+    - order: 9
+      path: "/showcase"
+      hide: true
+      title: "🎞 Showcases"
   links:
     # - text: BooGi
     #   link: https://github.com/filipowm/boogi
