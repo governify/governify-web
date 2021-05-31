@@ -6,7 +6,7 @@ order: 2
 
 As it was explained <a href="/quickstart/auditing-agile-2.0#scope.json">here</a>, the scope.json contains all the information about courses, teams and members available as an API (Scope Manager) for the other components to have access to it.
 
-![Successful Join](../images/join/success.PNG)
+![Successful Join](../../images/join/success.PNG)
 
 
 ### TODO - Bluejay's UI
