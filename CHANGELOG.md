@@ -1,3 +1,12 @@
+# [1.16.0](https://github.com/governify/governify-web/compare/v1.15.0...v1.16.0) (2021-05-31)
+
+
+### Features
+
+* hide duplicated link ([794a6ce](https://github.com/governify/governify-web/commit/794a6ce90d5ecd068252a192e52a92315e671df8))
+
+
+
 # [1.15.0](https://github.com/governify/governify-web/compare/v1.14.0...v1.15.0) (2021-05-31)
 
 
