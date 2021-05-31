@@ -6,8 +6,10 @@ order: 2
 
 As it was explained <a href="/quickstart/auditing-agile-2.0#scope.json">here</a>, the scope.json contains all the information about courses, teams and members available as an API (Scope Manager) for the other components to have access to it.
 
-![Successful join](../images/join/success.PNG)
+![Successful Join](../images/join/success.PNG)
 
+
+### TODO - Bluejay's UI
 
 ### Join
 
@@ -28,3 +30,5 @@ It offers an interface that works in three steps:
 #### Simplified register
 If the administrator wants to give users the ability to register to the system but don't needs the teams to select a course, it can be passed as a parametter in the URL simplifiying the process:
 1. By accessing to the URL followed by ?course=coursename (f.e. https://join.bluejay.mydomain.org?course=computerscience) a simplified view will appear. It will ask for the repository URL and, by clicking register, it will check the info.yml and, if succedes, add the team to the project. Remember the course has to be already created in the scopes.json file or it won't let the team to register. A badge will appear for users to access to their dashboard 
+
+#### TODO - Hide dashboard and badge
