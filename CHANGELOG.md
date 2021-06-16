@@ -1,3 +1,19 @@
+# [1.17.0](https://github.com/governify/governify-web/compare/v1.16.0...v1.17.0) (2021-06-16)
+
+
+### Bug Fixes
+
+* image route ([1ac7ce6](https://github.com/governify/governify-web/commit/1ac7ce646d3e9ab7097678b3d5f973e0bbe74a82))
+* remove ui ([12f2267](https://github.com/governify/governify-web/commit/12f2267b90c2124991a023808ef3e03b0892ff86))
+
+
+### Features
+
+* director and tpa links ([b27c2e3](https://github.com/governify/governify-web/commit/b27c2e3dac19df6aa7634392c12c68edc0b97a4d))
+* nested folder ([0fa0ccf](https://github.com/governify/governify-web/commit/0fa0ccf4f22beee638967485a9f7065066c9d12f))
+
+
+
 # [1.16.0](https://github.com/governify/governify-web/compare/v1.15.0...v1.16.0) (2021-05-31)
 
 
