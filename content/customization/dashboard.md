@@ -56,9 +56,9 @@ The custom dashboard are composed by three files. This three file are specified 
 ```json
     "dashboards": {
         "class-dashboard": {
-        "overlay": "/general-class/overlay.js",
-        "base": "/general-class/base.json",
-        "modifier": "/general-class/modifier.js"
+            "overlay": "/general-class/overlay.js",
+            "base": "/general-class/base.json",
+            "modifier": "/general-class/modifier.js"
         }
     }
 ```
