@@ -6,7 +6,7 @@ hide: true
 
 # Copyright notice
 
-**<%= pkg.name %>** is open-source software available under the GNU General Public License (GPL) version 3 (GPL v3).
+Governify Render is open-source software available under the GNU General Public License (GPL) version 3 (GPL v3).
 
 All including documentation and code are copyrighted and the copyright is owned by [ISA Group](http://www.isa.us.es), 
 [University of Sevilla](http://www.us.es), unauthorized reproduction or distribution of this copyrighted work is illegal.
