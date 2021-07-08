@@ -3,15 +3,15 @@ const fs = require("fs");
 
 const pages = {
     "./content/development/commons.md": "https://raw.githubusercontent.com/governify/commons/main/README.MD",
-    "./content/components/Render.md": "https://raw.githubusercontent.com/governify/render/main/README.md",
-    "./content/components/Assets.md": "https://raw.githubusercontent.com/governify/assets-manager/main/README.md",
-    "./content/components/Reporter.md": "https://raw.githubusercontent.com/governify/reporter/main/README.md",
-    "./content/components/Registry.md": "https://raw.githubusercontent.com/governify/registry/main/README.md",
-    "./content/components/Collectors/CollectorEvents.md": "https://raw.githubusercontent.com/governify/collector-events/main/README.md",
-    "./content/components/Collectors/CollectorDynamic.md": "https://raw.githubusercontent.com/governify/collector-dynamic/main/README.md",
-    "./content/components/Dashboard.md": "https://raw.githubusercontent.com/governify/dashboard/main/README.md",
-    "./content/components/Scopes.md": "https://raw.githubusercontent.com/governify/scope-manager/main/README.md",
-    "./content/components/Director.md": "https://raw.githubusercontent.com/governify/director/main/README.md"
+    "./content/components/render.md": "https://raw.githubusercontent.com/governify/render/main/README.md",
+    "./content/components/assets.md": "https://raw.githubusercontent.com/governify/assets-manager/main/README.md",
+    "./content/components/reporter.md": "https://raw.githubusercontent.com/governify/reporter/main/README.md",
+    "./content/components/registry.md": "https://raw.githubusercontent.com/governify/registry/main/README.md",
+    "./content/components/collectors/collector-events.md": "https://raw.githubusercontent.com/governify/collector-events/main/README.md",
+    "./content/components/collectors/collector-dynamic.md": "https://raw.githubusercontent.com/governify/collector-dynamic/main/README.md",
+    "./content/components/dashboard.md": "https://raw.githubusercontent.com/governify/dashboard/main/README.md",
+    "./content/components/scopes.md": "https://raw.githubusercontent.com/governify/scope-manager/main/README.md",
+    "./content/components/director.md": "https://raw.githubusercontent.com/governify/director/main/README.md"
 }
 
 const main = async () => {
