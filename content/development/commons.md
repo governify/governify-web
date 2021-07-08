@@ -3,7 +3,7 @@ title: 'Governify commons'
 order: 2
 ---
 
-## Introduction
+# Introduction
 This module is intended for use in all microservices of Governify infrastructure.
 It allows for abstract the functions that are mostly used in the code, to have a better control and parametrize the functions call.
 
@@ -13,7 +13,7 @@ Currently Governify-Commons implements the following:
 - A configuration manager compatible with local or external files
 - Utils function commonly used in all the microservices
 
-## Implementations
+# Implementations
 
 The module should be initiated at the entrypoint of the service as soon as possible in the code with:
 ```javascript
@@ -34,7 +34,7 @@ Once you have called the init function, you can require governify in other class
 
 **If you require governify-commons before the init function being completed, the infrastructure urls or the configuration can have null values.**
 
-### infrastructure
+## infrastructure
 
    In order to call another service in the infrastructure you must implement the code as following:
 ```javascript
@@ -51,7 +51,7 @@ governify.infrastructure.getServiceURL('external.registry')
 ```
       
 
-### httpClient
+## httpClient
 
 If you want to call a service that is not specified in the infrastructure file, you should use the httpClient as follows:
 
@@ -70,7 +70,7 @@ axios.get('http://api-echo.herokuapp.com/echo/');
 You can read axios documentation to see all the posible functions:
 [Axios NPM documentation](https://www.npmjs.com/package/axios)
 
-### configurator
+## configurator
 
 In order to load a configuration to the module, you have to specify it in the init function:
 
@@ -127,7 +127,7 @@ serverPort: 9000
 ```
     
 
-### utils
+## utils
 
 The most used functions of the utils are:
 ```javascript
