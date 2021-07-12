@@ -9,15 +9,13 @@ on:
   pull_request:
     branches:
       - '*'
-
 jobs:
   cleanup-runs:
     runs-on: ubuntu-latest
     steps:
     - uses: rokroskar/workflow-run-cleanup-action@master
       env:
-        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"        
   lint:
     name: Lint code
     runs-on: ubuntu-latest
@@ -34,31 +32,31 @@ jobs:
           reporter: github-pr-review # Default is github-pr-check
           level: warning
 
-  docker:
-    name: Build Docker images 
-    runs-on: ubuntu-latest
-    
-    strategy:
-      fail-fast: true
-      matrix:
-        dockerfile: ['Dockerfile.develop']
-   
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    
-    - name: Build Docker image
-      uses: docker/build-push-action@v1.1.0
-      with:
-        username: isagroup
-        password: ${{ secrets.DOCKER_REGISTRY_PASS }}
-        repository: isagroup/governify-web
-        tags: latest
-        tag_with_ref: true
-        tag_with_sha: false 
-        # Path to the Dockerfile (Default is '{path}/Dockerfile')
-        dockerfile: docker/${{ matrix.dockerfile }}
-        always_pull: false
-        cache_froms: node:buster-slim
-        add_git_labels: true
-        push: false # optional, default is true 
+#  docker:
+#    name: Build Docker images 
+#    runs-on: ubuntu-latest
+#    
+#    strategy:
+#      fail-fast: true
+#      matrix:
+#        dockerfile: ['Dockerfile.develop']
+#   
+#    steps:
+#    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#    - uses: actions/checkout@v2
+#    
+#    - name: Build Docker image
+#      uses: docker/build-push-action@v1.1.0
+#      with:
+#        username: isagroup
+#        password: ${{ secrets.DOCKER_REGISTRY_PASS }}
+#        repository: isagroup/governify-web
+#        tags: latest
+#        tag_with_ref: true
+#        tag_with_sha: false 
+#        # Path to the Dockerfile (Default is '{path}/Dockerfile')
+#        dockerfile: docker/${{ matrix.dockerfile }}
+#        always_pull: false
+#        cache_froms: node:buster-slim
+#        add_git_labels: true
+#        push: false # optional, default is true 

@@ -6,9 +6,7 @@ on:
       - develop
     tags:
       - 'v*'
-
 jobs:
-
   deployDevelopment:
     name: Deploy draft to Netlify
     runs-on: ubuntu-latest
@@ -40,7 +38,6 @@ jobs:
           body: |
             This commit has been deployed to **Netlify**
             [Deploy URL]: https://governify-dev.netlify.app/
-
   deployProduction:
     name: Deploy master branch to production
     runs-on: ubuntu-latest
@@ -67,29 +64,29 @@ jobs:
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
-  docker:
-    name: Build and push Docker images 
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        dockerfile: ['develop']
-   
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: Build Docker image
-      uses: docker/build-push-action@v1.1.0
-      with:
-        username: isagroup
-        password: ${{ secrets.DOCKER_REGISTRY_PASS }}
-        repository: isagroup/governify-web
-        tags: latest
-        tag_with_ref: true
-        tag_with_sha: true 
-        # Path to the Dockerfile (Default is '{path}/Dockerfile')
-        dockerfile: 'docker/Dockerfile.${{ matrix.dockerfile }}'
-        always_pull: false
-        cache_froms: node:buster-slim
-        add_git_labels: true
-        push: true # optional, default is true 
+#  docker:
+#    name: Build and push Docker images 
+#    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: true
+#      matrix:
+#        dockerfile: ['develop']
+#   
+#    steps:
+#    - uses: actions/checkout@v2
+#    
+#    - name: Build Docker image
+#      uses: docker/build-push-action@v1.1.0
+#      with:
+#        username: isagroup
+#        password: ${{ secrets.DOCKER_REGISTRY_PASS }}
+#        repository: isagroup/governify-web
+#        tags: latest
+#        tag_with_ref: true
+#        tag_with_sha: true 
+#        # Path to the Dockerfile (Default is '{path}/Dockerfile')
+#        dockerfile: 'docker/Dockerfile.${{ matrix.dockerfile }}'
+#        always_pull: false
+#        cache_froms: node:buster-slim
+#        add_git_labels: true
+#        push: true # optional, default is true 
