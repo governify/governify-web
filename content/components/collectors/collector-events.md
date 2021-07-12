@@ -244,7 +244,7 @@ The steps are differenciated by its type. These steps types follow a simple patt
  - Their types can start with "object", "objects" or nothing refering if they expect a single object, an array of objects or nothing at the execution. 
  - Their types have to end with "object" or "objects", refering if after the execution, a single object or an array of objects is left.
 
-#### **Step type: queryGetObject and queryGetObjects**
+#### Step type: queryGetObject and queryGetObjects
 This steps expect nothing and returns or an object or an array of objects. They do the same but both types are correct for better reading of the DSL.
 
 ```
@@ -257,7 +257,7 @@ This steps expect nothing and returns or an object or an array of objects. They 
 It needs a "query" parametter to be passed containing the graphQL query stringified and using comas between keys at the same level. There is a simple .js to transform graphQL queries into the string format in utils/queryToString.js to simplify the process. 
 %PROJECT.github.repository% and %PROJECT.github.repoOwner% are used to insert the scopes identities inside the query and make it generic for all the different teams.
 
-#### **Step type: objectGetSubObject and objectGetSubObjects**
+#### Step type: objectGetSubObject and objectGetSubObjects
 This steps expect a single object and return an object or an array of objects. They do the same but both types are correct for better reading of the DSL.
 ```
 {
@@ -268,7 +268,7 @@ This steps expect a single object and return an object or an array of objects. T
 
 It obtains the object/s inside an object. The object/s location is specified as if it was navegated through javascript.
 
-#### **Step type: objectsFilterObject and objectsFilterObjects**
+#### Step type: objectsFilterObject and objectsFilterObjects
 This steps expect an array of zero or more objects and return an object or an array of objects.
 
 A filters array with one or more strings is requried. These strings are equations. The left part contains the attribute location on the different objects to compare and the right part the value the obtained attribute is expected to be.
@@ -296,7 +296,7 @@ If the filter is *objectsFilterObjects*, the keep parameter is no longer needed.
 
 Here, information about the members can be included to compare for example, the content of an object key to be the username of a github username, as it can be seen in the example.
 
-#### **Step type: runScript**
+#### Step type: runScript
 This step expects anything and is passed in to a function exported as generic. It's expected to return a response in the form of an object/array or another kind in case it is compatible with the metric.
 
 To this date it can receive two parametters:
