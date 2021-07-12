@@ -1,5 +1,5 @@
 ---
-title: "Assets Manager"
+title: 'Assets Manager'
 order: 2
 ---
 

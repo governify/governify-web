@@ -1,5 +1,5 @@
 ---
-title: "Collectors"
+title: 'Collectors'
 order: 5
 hide: true
 ---

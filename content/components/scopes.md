@@ -1,5 +1,5 @@
 ---
-title: "Scope Manager"
+title: 'Scope Manager'
 order: 7
 hide: true
 ---

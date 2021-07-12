@@ -1,5 +1,5 @@
 ---
-title: "Registry"
+title: 'Registry'
 order: 4
 hide: true
 ---

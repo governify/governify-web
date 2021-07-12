@@ -1,5 +1,5 @@
 ---
-title: "Dynamic Collector"
+title: 'Dynamic Collector'
 order: 2
 hide: true
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Dashboard"
+title: 'Dashboard'
 order: 6
 hide: true
 ---

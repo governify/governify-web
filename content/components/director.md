@@ -1,5 +1,5 @@
 ---
-title: "Director"
+title: 'Director'
 order: 8
 hide: true
 ---

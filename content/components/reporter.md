@@ -1,5 +1,5 @@
 ---
-title: "Reporter"
+title: 'Reporter'
 order: 3
 hide: true
 ---
