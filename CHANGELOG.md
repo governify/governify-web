@@ -1,3 +1,12 @@
+## [1.17.1](https://github.com/governify/governify-web/compare/v1.17.0...v1.17.1) (2021-07-16)
+
+
+### Bug Fixes
+
+* hide showcase link (duplicated) ([f75c4fb](https://github.com/governify/governify-web/commit/f75c4fb5d52925bfbcbd5ece1de819cf5ab70722))
+
+
+
 # [1.17.0](https://github.com/governify/governify-web/compare/v1.16.0...v1.17.0) (2021-06-16)
 
 
