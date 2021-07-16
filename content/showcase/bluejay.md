@@ -1,7 +1,7 @@
 ---
 title: "Bluejay"
 order: 1
-hide: false
+hide: true
 ---
 
 ## Bluejay showcase video:
