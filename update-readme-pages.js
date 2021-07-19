@@ -3,6 +3,7 @@ const fs = require("fs");
 
 const pages = {
     "./content/development/commons.md": "https://raw.githubusercontent.com/governify/commons/main/README.MD",
+    "./content/development/dev-tools.md": "https://raw.githubusercontent.com/governify/dev-tools/main/README.md",
     "./content/components/render.md": "https://raw.githubusercontent.com/governify/render/main/README.md",
     "./content/components/assets.md": "https://raw.githubusercontent.com/governify/assets-manager/main/README.md",
     "./content/components/reporter.md": "https://raw.githubusercontent.com/governify/reporter/main/README.md",

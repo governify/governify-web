@@ -1,7 +1,7 @@
 ---
 title: 'Collectors'
 order: 5
-hide: true
+hide: false
 ---
 
 Work in progress.

@@ -3,8 +3,6 @@ title: 'Infrastructure'
 order: 0
 ---
 
-## Components
-
 ## Communication between components
 Internally, components communications goes through the internal docker network. For external communications (f.e.: Render calls Reporter) internet is used instead (DNS). The different components must communicate with each other using Governify Commons. In the root of the Assets' public folder is located the infrastructure.yaml defining all these URLs.
 
