@@ -4,7 +4,7 @@ order: 1
 ---
 ## Auditing agile development «Bluejay» 
 
-<Info>For deploying versions older than 2.0.0, click on this <a href="/quickstart/auditing-agile">link</a></Info>
+<Info>For deploying versions older than 2.0.0, click on this <a href="/quickstart/auditing-agile-1.0">link</a></Info>
 
 ### Introduction
 Governify platform can be use to model Team Practices in Agile development. We have develop components for collect information from multiple developing tools API such as GitHub, Pivotal Tracker, Heroku, and more.
