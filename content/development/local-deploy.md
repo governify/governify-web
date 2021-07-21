@@ -233,7 +233,7 @@ docker restart bluejay-scope-manager
 
 ### Develop a feature in an existing microservice
 
-To develop a feature is as simple as shutting the container down and then starting the microservice cloned from GitHub. F.e.: If the collector-events wants to be modified:
+To develop a feature is as simple as shutting the container down and then starting the microservice cloned from GitHub. E.g. If the collector-events wants to be modified:
 
 1. Stop the container:
 ```

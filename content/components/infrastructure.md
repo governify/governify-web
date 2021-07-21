@@ -3,7 +3,7 @@ title: 'Infrastructure'
 order: 0
 ---
 
-Internally, components communications goes through the internal docker network. For external communications (f.e.: Render calls Reporter) internet is used instead (DNS). The different components must communicate with each other using Governify Commons. In the root of the Assets' public folder is located the **infrastructure.yaml** defining all these URLs.
+Internally, components communications goes through the internal docker network. For external communications (e.g. Render calls Reporter) internet is used instead (DNS). The different components must communicate with each other using Governify Commons. In the root of the Assets' public folder is located the **infrastructure.yaml** defining all these URLs.
 
 In the [infrastructure.yaml](https://github.com/governify/bluejay-infrastructure/blob/main/assets/public/infrastructure.yaml) file, are defined the internal and external URLs that are used by Governify's microservices to communicate. In the following table, four rows showing the internal and external URLs for 4 different components are displayed (taken from the [infrastructure.yaml](https://github.com/governify/bluejay-infrastructure/blob/main/assets/public/infrastructure.yaml) file):
 
