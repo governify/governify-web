@@ -66,4 +66,4 @@ services:
 ...
 ```
 
-Although all the microservices share the same network (governify-bluejay), no aliases are defined. This is because the service name defined in the docker-compose also works as the alias inside the network. That's why these docker-compose service names are written in the internal infrastructure infrastructure of the infrastructure.yaml file (e.g. `bluejay-assets-manager` service name turns into `http://bluejay-assets-manager`).
+Although all the microservices share the same network (governify-bluejay), no aliases are defined. This is because the service name defined in the docker-compose also works as an alias, inside the network. That's why these docker-compose service names are written in the internal infrastructure defined in the infrastructure.yaml file (e.g. `bluejay-assets-manager` service name turns into `http://bluejay-assets-manager`).
