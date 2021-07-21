@@ -1,6 +1,6 @@
 ---
-title: 'Setting up the system locally'
-order: 2
+title: 'Set up development environment'
+order: 0
 ---
 
 ## Introduction

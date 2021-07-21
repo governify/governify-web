@@ -1,6 +1,6 @@
 ---
 title: 'Governify commons'
-order: 2
+order: 1
 ---
 
 # Introduction

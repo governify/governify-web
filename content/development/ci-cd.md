@@ -1,6 +1,6 @@
 ---
 title: 'CI/CD'
-order: 4
+order: 3
 ---
 
 # Introduction
