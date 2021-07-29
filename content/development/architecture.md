@@ -2,9 +2,11 @@
 title: 'Architecture'
 order: 3
 ---
+Depending on what is intended to analyze using the system, a set of components can be used in order to acomplish the duty. 
 
-EXPLICAR diagramas
+![Architecture](../images/architecture.PNG)
 
+In the above diagram, the most used components are shown displaying the flow of the information represented with the arrows. As it can be seen, the user enters an SLA using the render and it is stored in the registry. Then, the collectors receive information from multiple data sources to compute a metric, which is passed to the reporter through the registry and stored. After all this process is completed, the dashboard can be accessed to see the processed data.
 
 # Infrastructure
 
