@@ -35,27 +35,27 @@ sidebar:
       path: "/about"
       title: "📘 About"
     - order: 2
-      path: "/quickstart"
-      title: ":rocket: Quick Start"
-    - order: 3
-      path: "/customization"
-      title: ":wrench: Customization"
-    - order: 4
-      path: "/development"
-      title: "🛠 Development"
-    - order: 5
-      path: "/components"
-      title: "🔗 Components"
-    - order: 6
-      path: "/reference-guides"
-      title: "📑 Reference Guides"
-    - order: 7
       path: "/showcases"
       title: "🎞 Showcases"
-    - order: 8
-      path: "/contributing"
-      title: "📣 Contributing"
-  links:
+    - order: 3
+      path: "/quickstart"
+      title: ":rocket: Quick Start"
+    - order: 4
+      path: "/customization"
+      title: ":wrench: Customization"
+    - order: 5
+      path: "/development"
+      title: "🛠 Development"
+#    - order: 5
+#      path: "/components"
+#      title: "🔗 Components"
+    - order: 7
+      path: "/reference-guides"
+      title: "📑 Reference Guides"
+#    - order: 8
+#      path: "/contributing"
+#      title: "📣 Contributing"
+#  links:
     # - text: BooGi
     #   link: https://github.com/filipowm/boogi
     # - text: React
