@@ -1,6 +1,6 @@
 ---
-title: 'Event Collector'
-order: 1
+title: 'Collector Events'
+order: 5
 ---
 
 # Introduction

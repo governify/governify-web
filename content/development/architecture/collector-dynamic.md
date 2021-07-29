@@ -1,6 +1,6 @@
 ---
-title: 'Dynamic Collector'
-order: 2
+title: 'Collector Dynamic'
+order: 5
 hide: true
 ---
 
