@@ -1,3 +1,33 @@
+# [1.18.0](https://github.com/governify/governify-web/compare/v1.17.1...v1.18.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* <img> closing tag ([3c2fc12](https://github.com/governify/governify-web/commit/3c2fc1214a7da1757f818c90ebacade5a51e269a))
+* architecture image ([433df3b](https://github.com/governify/governify-web/commit/433df3b3f61e2c4ad07d3b50ef9e4a9bc329a196))
+* changed ordering ([ae7f378](https://github.com/governify/governify-web/commit/ae7f378951b8108547835064feb6effbabdaf6b7))
+* CI/CD and tooling ([c812f00](https://github.com/governify/governify-web/commit/c812f001c189ac25d2c069fe84d56b5ebd7ee6f8))
+* collector md ([bfb6958](https://github.com/governify/governify-web/commit/bfb6958ff08cb64a34c7494311a8f43fa2571643))
+* component ([770c9e9](https://github.com/governify/governify-web/commit/770c9e9a65f3e7ffc992e2ff5460bd064fcb92b1))
+* removed docker build ([17ed6da](https://github.com/governify/governify-web/commit/17ed6da2705e16e43cd386aca6c98a9718463638))
+* reordered sections ([8a4550c](https://github.com/governify/governify-web/commit/8a4550c9d7fce037a262e7db0ace3767b306b805))
+* tags ([c3c133f](https://github.com/governify/governify-web/commit/c3c133fb3c4bcb5ba50344a66ca5ec16075c3a7a))
+
+
+### Features
+
+* architecture ([c9357a8](https://github.com/governify/governify-web/commit/c9357a80fc5a94d8b177a0b175dcee5fcd3e0e6d))
+* automatic update based on readmes ([89c961d](https://github.com/governify/governify-web/commit/89c961dd53f12948a7394211d5810f6b4b31f692))
+* big update documentating components ([762b380](https://github.com/governify/governify-web/commit/762b380d6780d699cdf2f5a53cb0dc5f5a9ea72e))
+* changed quotes ([052fb68](https://github.com/governify/governify-web/commit/052fb68099a6a78b6e5a3f6d29c56aec6e5faf70))
+* collectors taken out of folder ([1fbd5ab](https://github.com/governify/governify-web/commit/1fbd5abb009bff73b1527bb7416a44412820985e))
+* new webpage information ([aba36bd](https://github.com/governify/governify-web/commit/aba36bda10626b5eefe04d0e5a46548941aabb65))
+* reordered files ([770c338](https://github.com/governify/governify-web/commit/770c33821a0c6b43597d4d9b1d14544b502a1301))
+* standarized file naming ([6d09b1a](https://github.com/governify/governify-web/commit/6d09b1aaed2dc1790c2c89c30ce8848beb73f247))
+* testing nesteability ([976b63d](https://github.com/governify/governify-web/commit/976b63d5ee7d126330d66156d7f92f48e4df8340))
+
+
+
 ## [1.17.1](https://github.com/governify/governify-web/compare/v1.17.0...v1.17.1) (2021-07-16)
 
 
