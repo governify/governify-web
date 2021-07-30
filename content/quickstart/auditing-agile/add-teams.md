@@ -13,7 +13,7 @@ As it was explained <a href="/quickstart/auditing-agile-2.0#scope.json">here</a>
 
 For making the process of adding teams to be audited in the system more intuitive, "Join" is another microservice serving a simple frontend which is enough for this purpose. It gives the teams the ability to register by themselves into the system without the need of an administrator to do it.
 
-By default, it can be accessed through https://join[BLUEJAY_SERVICES_PREFIX][BLUEJAY_DNS_SUFFIX] (f.e. https://join.bluejay.mydomain.org) in case Bluejay is deployed in the cloud or by accessing to http://localhost:6001 if it is deployed locally.
+By default, it can be accessed through https://join[BLUEJAY_SERVICES_PREFIX][BLUEJAY_DNS_SUFFIX] (e.g. https://join.bluejay.mydomain.org) in case Bluejay is deployed in the cloud or by accessing to http://localhost:6001 if it is deployed locally.
 
 **Bear in mind** that when registering a team to a course, the system will look for:
 - A **TPA template** called the same as the course in the assets folder `/public/renders/tpa` and use it to generate the TPA for the team. In case there this template does not exist, it will use template.yaml as TPA template. For more information about the TPA refer to the <a href="/customization/agreement_modeling">Agreement Modeling</a> section.
@@ -27,4 +27,4 @@ It offers an interface that works in three steps:
 
 #### Simplified register
 If the administrator wants to give users the ability to register to the system but don't needs the teams to select a course, it can be passed as a parametter in the URL simplifiying the process:
-1. By accessing to the URL followed by ?course=coursename (f.e. https://join.bluejay.mydomain.org?course=computerscience) a simplified view will appear. It will ask for the repository URL and, by clicking register, it will check the info.yml and, if succedes, add the team to the project. Remember the course has to be already created in the scopes.json file or it won't let the team to register. A badge will appear for users to access to their dashboard 
+1. By accessing to the URL followed by ?course=coursename (e.g. https://join.bluejay.mydomain.org?course=computerscience) a simplified view will appear. It will ask for the repository URL and, by clicking register, it will check the info.yml and, if succedes, add the team to the project. Remember the course has to be already created in the scopes.json file or it won't let the team to register. A badge will appear for users to access to their dashboard 
