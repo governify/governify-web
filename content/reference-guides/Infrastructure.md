@@ -21,10 +21,10 @@ First let's see a table with the Docker configuration of the microservices:
 | Reporter           | 5300        | governify/reporter:develop           | [GitHub](https://github.com/governify/reporter)          | Galibo & Bluejay |
 | Registry           | 5400        | governify/registry:develop           | [GitHub](https://github.com/governify/registry)          | Galibo & Bluejay |
 | Dashboard          | 5600        | governify/dashboard:develop          | [GitHub](https://github.com/governify/dashboard)         | Galibo & Bluejay |
-| Scopes             | 5700        | governify/scope-manager:develop      | [GitHub](https://github.com/governify/scope-manager)     | Galibo & Bluejay |
-| Logs               | 6001        | governify/galibo-logs:develop        | [GitHub 🔐](https://github.com/governify/galibo-logs)    | Galibo & Bluejay |
+| Scopes             | 5700        | governify/scope-manager:develop      | [GitHub](https://github.com/governify/scope-manager)     | Bluejay |
+| Logs               | 6001        | governify/galibo-logs:develop        | [GitHub 🔐](https://github.com/governify/galibo-logs)    | Galibo  |
 | Director           | 5800        | governify/director:develop           | [GitHub](https://github.com/governify/director)          | Galibo & Bluejay |
-| Join               | ----        | governify/join-bluejay:develop       | [GitHub](https://github.com/governify/join-bluejay)      | Galibo & Bluejay |
+| Join               | ------      | governify/join-bluejay:develop       | [GitHub](https://github.com/governify/join-bluejay)      | Galibo & Bluejay |
 | Collector-events   | 5500        | governify/collector-events:develop   | [GitHub](https://github.com/governify/collector-events)  |  Bluejay |
 | Collector-dynamic  | 5501        | governify/collector-dynamic:develop  | [GitHub](https://github.com/governify/collector-dynamic) | Galibo  |
 | Collector-ppinot   | 5502        | isagroup/governify-computer-ppinot   | [GitHub](https://github.com/governify/render)            | Galibo  |
@@ -35,7 +35,7 @@ First let's see a table with the Docker configuration of the microservices:
 
 </center>
 
-___
+
 ### Infrastructure-local.yaml
 For more details of the local deployment we can see the infrastructure-local files of both services, leaving the similarities between them and marking the differences:
 ```
