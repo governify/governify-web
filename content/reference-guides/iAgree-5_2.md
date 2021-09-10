@@ -1,5 +1,5 @@
 ---
-title: "iAgree Syntax 5.1"
+title: "iAgree Syntax 5.2"
 order: 0
 ---
 **Governify** uses iAgree specification lenguage to model SLAs.
@@ -597,21 +597,32 @@ Holds the main information of the SLA guarantee window.
 | Field name 	| Field type 	| Required/Optional 	| Description 	|
 |------------	|------------	|-------------------	|-------------	|
 | initial    	| `String`   																			| Optional      	| start date of the window according to [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) time 																														   																			|
-| end        	| `String`   																			| Optional      		| end date of the window according to [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) time 																													          																			|
+| end        	| `String`   																			| Optional      		| end date of the window according to [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) time
+| rules        	| `String`   																			| Optional      		| rules of the window according to [Rrule](www.https://github.com/jakubroztocil/rrule) library. Two rules are defined, the first for the start of the periods and the second for the end, separated by "---"																													          																			|
 | type       	| `String`   																			| **Required**      	| window type																																																																											|
-| period     	| `String`: [`"daily"`, `"weekly"`, `"monthly"`, `"quarterly"`, `"yearly"`]    	| **Required**      	|  used period. Supported values are:  `daily`: at the end of every day; `weekly`: at the end of every week; `monthly`: at the end of every month; `quarterly`: at the end of every quarter; `yearly`: at the end of every year    	|
+| period     	| `String`: [`"hourly"`, `"daily"`, `"weekly"`, `"monthly"`, `"yearly"`, `"customRules"`]    	| **Required**      	|  used period. Supported values are:  `hourly`: at the end of every hour; `daily`: at the end of every day; `weekly`: at the end of every week; `monthly`: at the end of every month; `yearly`: at the end of every year; `customRules`: defined with the field rules   	|
 
 ##### Example
 
-###### Synthetic
+###### Monthly period with a initial date of '2009-10-16'
 
 ``` 
 window:
     initial: '2009-10-16'
     type: static
-    period: monthly
+    period: 'monthly'
 ``` 
 
+###### Custom period. So two rules are defined separated with '---'. The first one is defined for the start of the periods every day at 10 o'clock and the second one is defined for the end of the periods every day at 22 o'clock.
+
+``` 
+window:
+    type: static
+    period: 'customRules'
+    rules: 'DTSTART:20200101T000000Z\nRRULE:FREQ=DAILY;INTERVAL=1;BYHOUR=10---DTSTART:20200101T000000Z\nRRULE:FREQ=DAILY;INTERVAL=1;BYHOUR=22'
+``` 
+
+You can find more documentation of the period definition [here](/reference-guides/periods).
 
 #### ConfigurationsObject
 Holds the main information of the SLA configurations.
