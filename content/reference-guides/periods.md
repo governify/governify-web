@@ -10,7 +10,7 @@ In addition to the WindowObject represented in the [iAgree-5.2](/reference-guide
 
 #### Basic periods
 
-There are 5 base periods: [`"hourly"`, `"daily"`, `"weekly"`, `"monthly"`, `"yearly"`]. Each one is converted to two rrules when the guarantee is going to be calculated. The first rrule is defined for the start of the periods and the second one for the end. In this way the periods are obtained by linking each start with its end.
+There are 5 base periods: [`"hourly"`, `"daily"`, `"weekly"`, `"monthly"`, `"yearly"`]. Each one is converted into two rrules when the guarantee is going to be calculated. The first rrule is defined for the period's start and the second one for the end. In this way the periods are obtained by linking each start with its end.
 
 ##### Example
 
@@ -33,7 +33,9 @@ let rruleEnd = new RRule({
 
 #### Customed periods
 
-If it is needed to define a more specific period, you can establish the period field like `"customRules"` and define the period in the rules field. You can have a look into [Rrule test tool](https://jakubroztocil.github.io/rrule/) and test your own rules. Remember that if you define a custom rule, you will need to define two rules. The first one will define the start of every period and the second one will define the end of every period. It is important to separate them with '---', so make sure your 'rules' field looks like 'startRule---endRule'. In order to have a well-defined rrule, an 'UNTIL' property is added to the rrules, which will establish when the periods end. This 'UNTIL' property is the end field of the window or the current date otherwise.
+If it is needed to define a more specific period, you can establish the period field like `"customRules"` and define the period in the rules field. You can have a look into [Rrule test tool](https://jakubroztocil.github.io/rrule/) and test your own rules. Remember that if you define a custom rule, you will need to define two rules. The first one will define the start of every period and the second one will define the end of every period. It is important to separate them with '---', so make sure your 'rules' field looks like 'startRule---endRule'.
+
+In order to have a well-defined rrule, an 'UNTIL' property is added to the rrules, which will establish when the periods end. This 'UNTIL' property is the end field of the window or the current date otherwise.
 
 ##### Example
 
@@ -52,4 +54,4 @@ let rruleEnd = 'DTSTART:20200101T000000Z\nRRULE:FREQ=DAILY;INTERVAL=1;BYHOUR=22;
 
 #### Last period
 
-Unless the window's end date is exactly the rrule's last end date, there is needed to add an extra period, which includes from the last generated start date to the window's end date. This period is generated automatically when the agreement is calculated.
+Unless the window's end date is exactly the rrule's last end date, it is necessary to add one more period, which includes from the last generated start date to the window's end date or the current date otherwise. This period is generated automatically when the agreement is calculated.

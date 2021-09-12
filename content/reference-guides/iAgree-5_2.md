@@ -598,13 +598,13 @@ Holds the main information of the SLA guarantee window.
 |------------	|------------	|-------------------	|-------------	|
 | initial    	| `String`   																			| Optional      	| start date of the window according to [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) time 																														   																			|
 | end        	| `String`   																			| Optional      		| end date of the window according to [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) time
-| rules        	| `String`   																			| Optional      		| rules of the window according to [Rrule](www.https://github.com/jakubroztocil/rrule) library. Two rules are defined, the first for the start of the periods and the second for the end, separated by "---"																													          																			|
+| rules        	| `String`   																			| Optional      		| rules of the window according to [Rrule](www.https://github.com/jakubroztocil/rrule) library. Two rules must be defined, the first one for the start of the periods and the second one for the end, separated by "---"																													          																			|
 | type       	| `String`   																			| **Required**      	| window type																																																																											|
-| period     	| `String`: [`"hourly"`, `"daily"`, `"weekly"`, `"monthly"`, `"yearly"`, `"customRules"`]    	| **Required**      	|  used period. Supported values are:  `hourly`: at the end of every hour; `daily`: at the end of every day; `weekly`: at the end of every week; `monthly`: at the end of every month; `yearly`: at the end of every year; `customRules`: defined with the field rules   	|
+| period     	| `String`: [`"hourly"`, `"daily"`, `"weekly"`, `"monthly"`, `"yearly"`, `"customRules"`]    	| **Required**      	|  used period. Supported values are:  `hourly`: at the end of every hour; `daily`: at the end of every day; `weekly`: at the end of every week; `monthly`: at the end of every month; `yearly`: at the end of every year; `customRules`: defined in 'rules' field   	|
 
 ##### Example
 
-###### Monthly period with a initial date of '2009-10-16'
+###### Monthly period with an initial date of '2009-10-16'
 
 ``` 
 window:
@@ -613,7 +613,7 @@ window:
     period: 'monthly'
 ``` 
 
-###### Custom period. So two rules are defined separated with '---'. The first one is defined for the start of the periods every day at 10 o'clock and the second one is defined for the end of the periods every day at 22 o'clock.
+###### Custom period. The first rule is defined for the period's start every day at 10 o'clock and the second one is defined for the period's end every day at 22 o'clock.
 
 ``` 
 window:
