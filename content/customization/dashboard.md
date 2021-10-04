@@ -20,8 +20,7 @@ The custom dashboard are composed by three files. This three file are specified 
             "modifier": "/general-class/modifier.js",
             "modifierPipe":{
                 "1":"/general-class/modifier2.js",
-                "2":"/general-class/modifier3.js",
-                ...
+                "2":"/general-class/modifier3.js"
             }
         }
     }
@@ -77,8 +76,7 @@ Dashboard block example:
                             "2": {
                                 "type": "gauge-time",
                                 "guarantee":"Guarantee_2"
-                            },
-                            ...
+                            }
                         }
                     }
                 }
