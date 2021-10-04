@@ -27,7 +27,7 @@ First let's see a table with the Docker configuration of the microservices:
 | Join               | ------      | governify/join-bluejay:develop       | [GitHub](https://github.com/governify/join-bluejay)      | Bluejay |
 | Collector-events   | 5500        | governify/collector-events:develop   | [GitHub](https://github.com/governify/collector-events)  |  Bluejay |
 | Collector-dynamic  | 5501        | governify/collector-dynamic:develop  | [GitHub](https://github.com/governify/collector-dynamic) | Galibo  |
-| Collector-ppinot   | 5502        | isagroup/governify-computer-ppinot   | [GitHub](https://github.com/isa-group/governify-computer-ppinot)  | Galibo  |
+| Collector-ppinot   | 5502        | isagroup/governify-computer-ppinot   | [GitHub 🔐](https://github.com/isa-group/governify-computer-ppinot)  | Galibo  |
 | DB-Mongo-Registry  | 5001        | mongo                                | ❌                                                       | Galibo & Bluejay |
 | DB-Influx-Reporter | 5002        | influxdb:1.8.4-alpine                | ❌                                                       | Galibo & Bluejay |
 | DB-Collector-Redis | 5003        | redis                                | ❌                                                       | Bluejay |
