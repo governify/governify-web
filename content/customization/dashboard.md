@@ -81,18 +81,72 @@ Dashboard block example:
                     }
                 }
 ```
-#### **Blocks Types** :
+#### Blocks Types:
 Every type of block have the option _"time-graph-title"_ to define its title as seen in the example.
 - **time-graph**: 
+    This block represents percentage data over time along with the individual points in a list.
+    ![time-graph](../images/dashboards/time-graph.png)
+
 - **time-graph2**: 
-- **time-graph2-member**: 
+    Like the previous one, it shows the points of a time series of percentages but without the list of points.
+    ![time-graph2](../images/dashboards/time-graph2.png)
+
 - **correlated**: 
-- **gauge**:
-- **gauge-not-zero**:
-- **gauge-time**:
-- **time-gauge**:  
+    With the correlated block, which is specific to bluejay, we obtain the comparison of 2 metrics of the same warranty, first in a visual comparison with the rest of the classes in the scope along with the list of points and then a comparison of these 2 metrics over time for the group in question.
+    Needed extra config: 
+    ```json
+        "config":{
+            "x-axis-metric":"x_Metric",
+            "y-axis-metric":"y_Metric",
+            "not-zero-metric":"notZero_Metric"
+        }
+    ```
+    ![Correlated](../images/dashboards/correlated.png)
+
+- **gauge**: 
+    Simple gauge block showing the percentage average of a given guarantee
+    ![Gauge](../images/dashboards/gauge.png)
+
+- **gauge-time**: 
+    This block adds a visualisation over time to the previous gauge block, allowing you to observe the evolution 
+![Gauge-time](../images/dashboards/gauge-time.png)
+
 - **gauge-time-correlation-notZero**: 
+    Block for guarantees with more than one metric allows us to visualise the level of agreement that our particular group is reaching together with a relationship with respect to the rest of the groups in the scope.
+    Needed extra config: 
+    ```json
+        "config":{
+            "x-axis-metric":"x_Metric",
+            "y-axis-metric":"y_Metric",
+            "not-zero-metric":"notZero_Metric" 
+        }
+    ```
+    ![Gauge-time-corrilation](../images/dashboards/gauge-time-corrilation.png)
+
 - **divider-changer**: 
+    This block allows the organisation and navigation between different dashboards specified for a same agreement
+    Needed extra config: 
+    ```json
+        "config":{
+            "title":"Full Dashboard", //main title for the header
+            "button-text":"Simplified view", 
+            "old-view":"full", // actual dashboard name
+            "new-view":"general" // dashboard name we want to go
+        }
+    ```
+    ![Divider-changer](../images/dashboards/divider.png)
+
 - **divider-changer-github**: 
+    Implements the previous block along with the option to navigate to the github repository of the group.
+    Needed extra config: 
+    ```json
+        "config":{
+            "title":"Simplified Dashboard", //main title for the header
+            "button-text":"Go to full view",
+            "old-view":"general", // actual dashboard name
+            "new-view":"full" // dashboard name we want to go
+        }
+    ```
+    ![Divider-changer-github](../images/dashboards/divider-github.png)
 
 
