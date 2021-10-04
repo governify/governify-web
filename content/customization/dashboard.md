@@ -40,7 +40,7 @@ The function modifyJSON receives 3 parameters:
 
 Example function:
 ```js
-function modifyJSON(jsonDashboard, agreement, dashboardName){\
+function modifyJSON(jsonDashboard, agreement, dashboardName){
   let modifiedDashboard = {...jsonDashboard};
   return modifiedDashboard;
 }
@@ -82,15 +82,41 @@ Dashboard block example:
                 }
 ```
 #### Blocks Types:
-Every type of block have the option _"time-graph-title"_ to define its title as seen in the example.
+Every type of block have the option _"time-graph-title"_ to define its title as seen in the example except for dividers blocks.
 - **time-graph**: 
     This block represents percentage data over time along with the individual points in a list.
     ![time-graph](../images/dashboards/time-graph.png)
+
 
 - **time-graph2**: 
     Like the previous one, it shows the points of a time series of percentages but without the list of points.
     ![time-graph2](../images/dashboards/time-graph2.png)
 
+- **gauge**: 
+    Simple gauge block showing the percentage average of a given guarantee
+    ![Gauge](../images/dashboards/gauge.png)
+
+- **gauge-time**: 
+    This block adds a visualisation over time to the previous gauge block, allowing you to observe the evolution 
+![Gauge-time](../images/dashboards/gauge-time.png)
+
+- **gauge-time-correlation**: 
+    Block for guarantees with more than one metric allows us to visualise the level of agreement that our particular group is reaching together with a relationship with respect to the rest of the groups in the scope.
+    Needed extra config: 
+    ```json
+        "config":{
+            "x-axis-metric":"x_Metric",
+            "y-axis-metric":"y_Metric"
+        }
+    ```
+    ![Gauge-time-corrilation](../images/dashboards/gauge-time-corrilation.png)
+
+All of the above blocks have the alternative _"-notZero"(e.g. time-graph-notZero)_ which removes null points from a metric. These alternatives are recommended for the implementation of dashboards in bluejay. They need the extra configuration:
+```json
+        "config":{
+             "not-zero-metric":"notZero_Metric"
+        }
+```
 - **correlated**: 
     With the correlated block, which is specific to bluejay, we obtain the comparison of 2 metrics of the same warranty, first in a visual comparison with the rest of the classes in the scope along with the list of points and then a comparison of these 2 metrics over time for the group in question.
     Needed extra config: 
@@ -103,25 +129,6 @@ Every type of block have the option _"time-graph-title"_ to define its title as 
     ```
     ![Correlated](../images/dashboards/correlated.png)
 
-- **gauge**: 
-    Simple gauge block showing the percentage average of a given guarantee
-    ![Gauge](../images/dashboards/gauge.png)
-
-- **gauge-time**: 
-    This block adds a visualisation over time to the previous gauge block, allowing you to observe the evolution 
-![Gauge-time](../images/dashboards/gauge-time.png)
-
-- **gauge-time-correlation-notZero**: 
-    Block for guarantees with more than one metric allows us to visualise the level of agreement that our particular group is reaching together with a relationship with respect to the rest of the groups in the scope.
-    Needed extra config: 
-    ```json
-        "config":{
-            "x-axis-metric":"x_Metric",
-            "y-axis-metric":"y_Metric",
-            "not-zero-metric":"notZero_Metric" 
-        }
-    ```
-    ![Gauge-time-corrilation](../images/dashboards/gauge-time-corrilation.png)
 
 - **divider-changer**: 
     This block allows the organisation and navigation between different dashboards specified for a same agreement
