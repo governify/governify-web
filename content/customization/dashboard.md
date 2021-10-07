@@ -166,6 +166,7 @@ In this section we will see an example of input and output using the block creat
 
     In this dashboard we will declare 2 dashboards for the guarantees _CORRELATION_INPROGRESSISSUES_NEWBRANCH_, _CORRELATION_INREVIEWISSUES_OPENPR_ and _CORRELATION_DONEISSUES_MERGEDPR_, the first one simplified where we will represent the averages in simple gauge type graphs and the second one more detailed where we will show different graphs, one a bit simpler where we will only see the evolution of the measure and the other 2 more complex where we will see a comparison with the rest of the members of the PSG2 scope.
 
+    The first part of the agreement is the default config which is not important for what concerns us.
     ```json
     {
         "id": "tpa-1010101010",
@@ -179,6 +180,10 @@ In this section we will see an example of input and output using the block creat
             "definitions": {
                 ...
                 "dashboards": {
+    ```
+
+    Here we have the declaration of the first dashboard by activating the configDashboard and we declare 4 blocks
+    ```json
                     "main": { // Here we define the first dashboard simplified
                         "overlay": "",
                         "base": "",
@@ -219,6 +224,9 @@ In this section we will see an example of input and output using the block creat
                             }
                         }
                     },
+    ```
+    As with the first dashboard, we activate the option and declare the blocks with their necessary configurations.
+    ```json
                     "complete": { // Here start the detailed dashboard
                         "overlay": "",
                         "base": "",
@@ -272,6 +280,11 @@ In this section we will see an example of input and output using the block creat
                 }
             }
         },
+    ```
+
+    Finally, we declare the metrics and their guarantees.
+    ```json
+
         "terms": {
             "metrics": {
                 "NUMBER_GH_NEWBRANCH": {
