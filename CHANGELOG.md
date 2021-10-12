@@ -1,3 +1,26 @@
+# [1.19.0](https://github.com/governify/governify-web/compare/v1.18.0...v1.19.0) (2021-10-12)
+
+
+### Bug Fixes
+
+* ellipses ([6352900](https://github.com/governify/governify-web/commit/6352900f52df8638d864d740a0f21dc0be4e9acf))
+* emoji cleanup ([a0471d7](https://github.com/governify/governify-web/commit/a0471d79e9371ae6545a32dd129ede3fe0a98711))
+* infrastructure table ([cb85f7c](https://github.com/governify/governify-web/commit/cb85f7cb1a4603b23ea032e3e9293100342a4eb5))
+* microservice table error ([19b5fe1](https://github.com/governify/governify-web/commit/19b5fe15512fc9f07fadaf21a424518b47e7a9b3))
+
+
+### Features
+
+* customizable window period ([3164b4d](https://github.com/governify/governify-web/commit/3164b4db52d97fb69bb2553e11d5e710518b22da))
+* dashboard explanation 1 ([8eb428f](https://github.com/governify/governify-web/commit/8eb428fc6c3b61e4f6ca7b03696a66d0305f7997))
+* dashboard explanation 2 ([e992bd1](https://github.com/governify/governify-web/commit/e992bd1265333f512094aaa8f9344d4c339e077d))
+* dashboard explanation 3 ([58335ee](https://github.com/governify/governify-web/commit/58335eebbd56a130ffa0ebd9884a1ff8bc25e061))
+* Dashboard explanation 4 ([813f7ed](https://github.com/governify/governify-web/commit/813f7ed7aab5953b31356a5b9a1c0b122ab4b231))
+* dashboard explanation 6 ([63c2b6e](https://github.com/governify/governify-web/commit/63c2b6ec00d40826392f2fcab4d7703a6ad336e1))
+* infrastructure reference ([637f014](https://github.com/governify/governify-web/commit/637f0141455dc252f6ef2d08e1608a5c037af930))
+
+
+
 # [1.18.0](https://github.com/governify/governify-web/compare/v1.17.1...v1.18.0) (2021-07-30)
 
 
