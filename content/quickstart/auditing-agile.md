@@ -141,7 +141,7 @@ $    helm repo update
 $    helm install -f values.yaml bluejay governify/Governify-Bluejay
 ```
 
-More information about the configuration options available for Governify-Falcon HELM chart can be found at our [HELM Charts repository](https://github.com/governify/helm-charts/tree/main/infrastructure/Governify-Bluejay).
+More information about the configuration options available for Governify-Bluejay HELM chart can be found at our [HELM Charts repository](https://github.com/governify/helm-charts/tree/main/infrastructure/Governify-Bluejay).
 ___
 
 
