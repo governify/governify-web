@@ -64,15 +64,15 @@ The default credentials for this interface are:
 
 In this interface you should be able to see the infrastructures that are being monitored. At first, it will display a card showing a message .
 
-![No infrastructure being monitored](../images/auditing_infrastructures/ui-interface-empty.png)
+![No infrastructure being monitored](../../images/auditing_infrastructures/ui-interface-empty.png)
 
 To start monitoring any infrastructure, check the [adding infrastructures](./auditing-infrastructures/adding-infrastructures.md) section. After setting up the configuration for one infrastructure, you should see a card displayed in the user interface at ui.falcon.*[YourDomain]*.
 
-![Infrastructure being monitored](../images/auditing_infrastructures/ui-interface.png)
+![Infrastructure being monitored](../../images/auditing_infrastructures/ui-interface.png)
 
 After clicking the *ANS* button, a new tab will open and the SLA view of the project should appear. It contains information about the infrastucture being monitored along the guarantees and metrics in use.
 
-![TPA view](../images/auditing_infrastructures/tpa_view.png)
+![TPA view](../../images/auditing_infrastructures/tpa_view.png)
 
 To calculate data for this infrastructure, the top-right blue button `Calculate Metrics` has to be clicked. A window will pop-up asking for confirmation, since the previous records will be deleted.
 
@@ -84,7 +84,7 @@ Clicking the `Dashboard` green button at the top-right corner, a new tab will op
 
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
 
-![Dashboard of Bluejay response times](../images/auditing_infrastructures/dashboard.png)
+![Dashboard of Bluejay response times](../../images/auditing_infrastructures/dashboard.png)
 
 Now is time to configure your own projects in order to audit them.
 
