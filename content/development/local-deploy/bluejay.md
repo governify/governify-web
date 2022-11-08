@@ -1,5 +1,5 @@
 ---
-title: 'Set up Bluejay development environment'
+title: 'Bluejay'
 order: 0
 ---
 

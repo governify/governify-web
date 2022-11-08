@@ -14,7 +14,7 @@ Bluejay can audit one team, multiples teams or an entire company having diferent
 
 You can deploy Bluejay in 5 minutes.
 ___
-### Deploying Bluejay
+### Deploying Bluejay using Docker-Compose
 This guide deploys bluejay with the docker ecosystem and serve it by means of an nginx proxy.
 
 #### Prerequisites
@@ -97,6 +97,53 @@ Governify ecosystem with bluejay services should have been deployed in your mach
 <Info>If you prefer, there is also an <a href="#advancedsetup">advanced guide</a> to deploy the system including extra options.</Info>
 
 ___
+
+### Deploying Bluejay using Kubernetes (HELM)
+
+1. Create Namespace
+```
+$    kubectl create namespace governify-bluejay
+```
+
+2. Install Contour
+```
+$    kubectl apply -f https://projectcontour.io/quickstart/contour.yaml
+```
+
+3. Wait a few minutes and get the Load Balancer IP Address
+```
+$    (kubectl get -n projectcontour service envoy -o json) | jq -r '.status.loadBalancer.ingress[0].ip'
+```
+
+4. Install CertManager
+```
+$    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.yaml
+```
+
+5. Create a values.yaml file with the following content
+```
+    global:
+        node_env: production
+        gov_infrastructure: http://bluejay-assets-manager/api/v1/public/infrastructure.yaml
+        services_prefix: .<infrastructure-prefix>
+        dns_suffix: .<your-DNS-zone>
+        login_user: governify-admin
+        login_password: governify-project
+    
+    assets_manager:
+        private_key: somerandomkey
+```
+
+6. Install charts
+```
+$    helm repo add governify https://governify.github.io/helm-charts
+$    helm repo update
+$    helm install -f values.yaml bluejay governify/Governify-Bluejay
+```
+
+More information about the configuration options available for Governify-Falcon HELM chart can be found at our [HELM Charts repository](https://github.com/governify/helm-charts/tree/main/infrastructure/Governify-Bluejay).
+___
+
 
 ### Quick tour
 The main interaface is accesible from ui.bluejay.*[YourDomain]*
