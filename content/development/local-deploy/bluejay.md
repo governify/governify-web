@@ -65,19 +65,19 @@ The default credentials for this interface are:
 
 In this interface you should be able to see a list of all the teams you have in your configuration. By default, it comes with a predefined example project.
 
-![Projects list interface of Governify](../images/auditing_agile/ui-interface.PNG)
+![Projects list interface of Governify](../../images/auditing_agile/ui-interface.PNG)
 
 To start auditing the example project simply click on the "Create TPA" button right next to the team's name (project01). This will create a simple predefined agreement for that team to start auditting it.
 
-![Create TPA Button](../images/auditing_agile/create_tpa.png)
+![Create TPA Button](../../images/auditing_agile/create_tpa.png)
 
 A new tab will open and, once the agreement is created, the TPA view of the project should appear. It contains information about it along the guarantees and metrics in use.
 
-![TPA view](../images/auditing_agile/tpa_view.PNG)
+![TPA view](../../images/auditing_agile/tpa_view.PNG)
 
 To calculate data for this project, the top-right blue button `Calculate Metrics` has to be clicked and a form will apear.
 
-![Calculate Metrics form](../images/auditing_agile/compute_metrics.PNG)
+![Calculate Metrics form](../../images/auditing_agile/compute_metrics.PNG)
 
 The dates should be the same as the image in order to appear the correct information and the checkbox has to be accepted. By clicking the `Compute` button the system will start computing and, if everything goes well, after 5-20 seconds, the `TPA data is being generated for the period.` alert message will change to `Points creation ended.`
 
@@ -87,7 +87,7 @@ Clicking the `Dashboard` green button at the top-right corner, a new tab will op
 
 Once logged, the dashboard for the project will be opened where all the audit data can be viewed.
 
-![Dashboard of the example project](../images/auditing_agile/dashboard.png)
+![Dashboard of the example project](../../images/auditing_agile/dashboard.png)
 
 Now is time to configure your own projects in order to audit them.
 
@@ -282,64 +282,4 @@ $    helm repo update
 $    helm install -f values.yaml <release_name> governify/<chart_name>
 ```
 
-## Configuration
-
-
-> **Note**
->
-> The default namespace for this infrastructure is `governify-bluejay`
-
-### Global Configuration
-
-| **Name**           	| **Required** 	| **Type** 	| **Default** 	| **Description**                                   	|
-|--------------------	|--------------	|----------	|:-----------:	|---------------------------------------------------	|
-| services_prefix    	| only_prod    	| String   	| -           	| The DNS prefix that services will use             	|
-| dns_suffix         	| only_prod    	| String   	| -           	| The DNS suffix that services will use             	|
-| node_env           	| yes          	| String   	|  production 	| The environment in which the app will be deployed 	|
-| infrastructure     	| yes          	| String   	|    falcon   	| The infrastructure name                           	|
-| gov_infrastructure 	| yes          	| String   	| -           	| URL to **infrastructure** file in assets-manager  	|
-| login_user         	| yes          	| String   	| -           	| Render and Assets Manager login user              	|
-| login_password     	| yes          	| String   	| -           	| Render and Assets Manager login password          	|
-| namespaceOverride    	| no          	| String   	| -           	| Override default namespace                          	|
-
-### Services Configuration
-
-#### Assets Manager
-
-| **Name**                 	| **Required** 	| **Type** 	|             **Default**            	| **Description**                                  	|
-|--------------------------	|--------------	|----------	|:----------------------------------:	|--------------------------------------------------	|
-| private_key              	| yes          	| String   	| defaultkey                         	| Assets Manager key for private directory         	|
-| assets_repository        	| yes          	| String   	| github.com/governify/assets-falcon 	| Repository that will be cloned by Assets Manager 	|
-| assets_repository_branch 	| yes          	| String   	| main                               	| Repository branch that will be cloned            	|
-| gov_infrastructure       	| yes          	| String   	| -                                  	| Assets local path to infrastructure file         	|
-| volume_storage       	| yes          	| String   	| 5Gi                                  	| Assets volume capacity          	|
-
-#### Scope Manager
-
-| **Name**                 	| **Required** 	| **Type** 	|             **Default**            	| **Description**                                  	|
-|--------------------------	|--------------	|----------	|:----------------------------------:	|--------------------------------------------------	|
-| private_key              	| yes          	| String   	| defaultkey                         	| Scope Manager access key         	|
-
-
-#### Influx DB
-
-| **Name**                 	| **Required** 	| **Type** 	|             **Default**            	| **Description**                                  	|
-|--------------------------	|--------------	|----------	|:----------------------------------:	|--------------------------------------------------	|
-| volume_storage       	| yes          	| String   	| 5Gi                                  	| InfluxDB volume capacity          	|
-
-#### Mongo DB
-
-| **Name**                 	| **Required** 	| **Type** 	|             **Default**            	| **Description**                                  	|
-|--------------------------	|--------------	|----------	|:----------------------------------:	|--------------------------------------------------	|
-| volume_storage       	| yes          	| String   	| 5Gi                                  	| InfluxDB volume capacity          	|
-
-#### Collector events
-
-| **Name**                 	| **Required** 	| **Type** 	|             **Default**            	| **Description**                                  	|
-|--------------------------	|--------------	|----------	|:----------------------------------:	|--------------------------------------------------	|
-| key_github              	| yes          	| String   	| -                         	| Github Token|
-| key_pivotal              	| yes          	| String   	| -                         	| Pivotal Token|
-| key_travis_public         | yes           | String   	| -                        | Travis public key|
-| key_travis_private        | yes           | String   	| -                        | Travis private key|
-| key_heroku                | yes           | String   	| -                        | Heroku token|
-| key_codeclimate           | yes           | String   	| -                        | Codeclimate token|
+More information about the configuration options available for Governify-Bluejay HELM chart can be found at our [HELM Charts repository](https://github.com/governify/helm-charts/tree/main/infrastructure/Governify-Bluejay).
