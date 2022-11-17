@@ -1,3 +1,21 @@
+# [1.20.0](https://github.com/governify/governify-web/compare/v1.19.1...v1.20.0) (2022-11-17)
+
+
+### Bug Fixes
+
+* Added prerequisites to k8s deployments ([8571dc0](https://github.com/governify/governify-web/commit/8571dc0286f07e9512f57207642521d3bb6fc85c))
+* Broken image links ([9e81d26](https://github.com/governify/governify-web/commit/9e81d26f7cfa99cc51bd7e26468a23bfa8ecc504))
+
+
+### Features
+
+* Added new use-case ([2b52a5b](https://github.com/governify/governify-web/commit/2b52a5b1fbc6f9f5b3b9a587a34bda8b00da3958))
+* Auditing infrastructures with Falcon ([65d4f59](https://github.com/governify/governify-web/commit/65d4f591bb974c00b9b5f50b5bd57694825a1756))
+* Bluejay kubernetes deployment docs ([002b5ba](https://github.com/governify/governify-web/commit/002b5bac697fc76ed93aaed576809e3b4cb7162d))
+* Falcon development environment ([1e34894](https://github.com/governify/governify-web/commit/1e348941f60200e28469e71651caffe6f1d02298))
+
+
+
 ## [1.19.1](https://github.com/governify/governify-web/compare/v1.19.0...v1.19.1) (2021-10-27)
 
 
