@@ -100,6 +100,12 @@ ___
 
 ### Deploying Bluejay using Kubernetes (HELM)
 
+#### Prerequisites
+- Kubernetes cluster with HELM installed
+- A domain with the ability to modify DNS records.
+- Ports 80, 443 open for the cluster.
+
+#### Infrastructure setup
 1. Create Namespace
 ```
 $    kubectl create namespace governify-bluejay
