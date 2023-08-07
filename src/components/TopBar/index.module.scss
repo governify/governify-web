@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+
+.nav {
+    text-align: center;
+    margin: 0;
+    background-color: #333;
+    color: #fff;
+    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+}
+.ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.a {
+    display: block;
+    padding: 1.2em;
+    text-decoration: none;
+    color: #fff;
+}
+.a:hover {
+    background-color: #000;
+}
+
+.hr {
+    border-left: 1px solid #707070;
+    height: 50px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .responsiveTitle {
+        display: none;
+    }
+
+    .responsiveLi {
+        display: none;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .responsiveLi {
+        display: none;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .responsiveLi {
+        display: block;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

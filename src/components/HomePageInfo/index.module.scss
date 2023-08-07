@@ -1,0 +1,13 @@
+.infoBanner {
+    padding: 2rem;
+    font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;   
+    background-color: #ddd;
+}
+
+.cardContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
