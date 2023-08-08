@@ -9,11 +9,11 @@ export default function HomepageHeader() {
           <h5>Open Source Governance over SLAs</h5>
         </div>
         <div className={styles.btnGroup}>
-          <button className={styles.btn}>General Docs</button>
-          <button className={styles.btn}>
+          <a className={styles.btn} href="https://docs.governify.io" target='_blank'>General Docs</a>
+          <a className={styles.btn} href="https://github.com/governify" target='_blank'>
             <VscGithubInverted size={'1.2em'} style={{alignSelf: 'center'}}/>
             GitHub
-          </button>
+          </a>
         </div>
       </div>
     );
